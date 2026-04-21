@@ -6,7 +6,7 @@
   <title>BASED BRETT — $BRETT on Solana</title>
   <meta name="title" content="BRETT - No 1 Meme on Solana">
   <meta name="description" content="Introducing BRETT, The No 1 MEME COIN on Solana and a Friend of PEPE.">
-  <meta name="keywords" content="BRETT, BRETT Coin, Solana MEME, Brett Solana, PEPE, Meme Coin, Meme on Solana, Solana Network, Matt Furie">
+  <meta name="keywords" content="BRETT, BRETT Coin, Solana MEME, Brett Solana, PEPE, Meme Coin, Pump.fun, Solana Network, Matt Furie">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="BASED BRETT">
   <meta property="og:description" content="Introducing BRETT, The No 1 MEME COIN on Solana and a Friend of PEPE.">
@@ -26,552 +26,480 @@
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            yllw: '#f5d800',
-            lyllw: '#3da9d6',
-            gry: '#888888',
-            blk: '#000000',
-          },
-          fontFamily: {
-            primary: ['Bangers', 'cursive'],
-          }
+          colors: { yllw: '#f5d800', lyllw: '#3da9d6' },
+          fontFamily: { primary: ['Bangers', 'cursive'] }
         }
       }
     }
   </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
-    
+    /* ── Fonts ── */
     .font-primary { font-family: 'Bangers', cursive; letter-spacing: 0.05em; }
-    .text-stroke { -webkit-text-stroke: 2px white; color: transparent; }
+
+    /* ── Text strokes ── */
+    .text-stroke    { -webkit-text-stroke: 2px white; color: transparent; }
     .text-stroke-sm { -webkit-text-stroke: 1px white; color: transparent; }
-    .bg-cover-custom {
+
+    /* ── Background ── */
+    body {
       background-image: url('https://i.imgur.com/LpTKIs7.png');
       background-size: cover;
       background-position: center top;
       background-repeat: no-repeat;
       background-attachment: fixed;
-      position: relative;
     }
-    .bg-cover-custom::before {
+    body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background: rgba(5, 15, 35, 0.72);
+      background: rgba(5, 14, 34, 0.76);
       pointer-events: none;
       z-index: 0;
     }
-    nav, section, div[id], footer, .glass-card { position: relative; z-index: 1; }
-    .glow-orb-1 {
-      position: absolute; border-radius: 50%;
-      width: 48rem; height: 48rem;
-      background: radial-gradient(circle, rgba(61,169,214,0.5) 0%, transparent 70%);
-      filter: blur(80px);
-      pointer-events: none;
+    /* All direct body children sit above the overlay */
+    body > * { position: relative; z-index: 1; }
+
+    /* ── Glass card ── */
+    .glass-card {
+      background: linear-gradient(135deg, rgba(61,169,214,0.13) 0%, rgba(245,216,0,0.07) 100%);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(61,169,214,0.35);
     }
-    .glow-orb-2 {
-      position: absolute; border-radius: 50%;
-      width: 48rem; height: 48rem;
-      background: radial-gradient(circle, rgba(245,216,0,0.3) 0%, transparent 70%);
-      filter: blur(80px);
-      pointer-events: none;
+
+    /* ── Buttons ── */
+    .btn-pump {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.75rem; border-radius: 9999px;
+      font-family: 'Bangers', cursive; font-size: 1.25rem; letter-spacing: 0.05em;
+      color: #fff; text-decoration: none; cursor: pointer;
+      background: linear-gradient(135deg, #ff6b35 0%, #ff3e8e 100%);
+      border: 1px solid rgba(255,107,53,0.6);
+      box-shadow: 0 4px 22px rgba(255,62,142,0.45);
+      transition: transform 0.2s, filter 0.2s;
     }
-    .hover-scale { transition: transform 0.3s ease-in-out; }
-    .hover-scale:hover { transform: scale(1.05); }
+    .btn-pump:hover { transform: scale(1.05); filter: brightness(1.12); }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.75rem; border-radius: 9999px;
+      font-family: 'Bangers', cursive; font-size: 1.25rem; letter-spacing: 0.05em;
+      color: #000; text-decoration: none; cursor: pointer;
+      background: linear-gradient(135deg, #f5d800 0%, #3da9d6 100%);
+      border: 1px solid rgba(245,216,0,0.7);
+      transition: transform 0.2s, filter 0.2s;
+    }
+    .btn-primary:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.75rem; border-radius: 9999px;
+      font-family: 'Bangers', cursive; font-size: 1.25rem; letter-spacing: 0.05em;
+      color: white; text-decoration: none; cursor: pointer;
+      background: rgba(61,169,214,0.1);
+      border: 1px solid rgba(61,169,214,0.65);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { transform: scale(1.05); background: rgba(61,169,214,0.24); }
+
+    /* ── Animations ── */
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-16px); }
     }
     @keyframes pulse-glow {
-      0%, 100% { opacity: 0.5; transform: scale(1); }
-      50% { opacity: 0.8; transform: scale(1.05); }
+      0%,100% { opacity: 0.5; transform: scale(1); }
+      50%      { opacity: 0.82; transform: scale(1.05); }
     }
     @keyframes spin-slow {
       from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      to   { transform: rotate(360deg); }
     }
-    .float-anim { animation: float 4s ease-in-out infinite; }
-    .pulse-anim { animation: pulse-glow 3s ease-in-out infinite; }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes fadeUp   { from { opacity:0; transform:translateY(28px);  } to { opacity:1; transform:none; } }
+    @keyframes fadeLeft { from { opacity:0; transform:translateX(-46px); } to { opacity:1; transform:none; } }
+    @keyframes fadeRight{ from { opacity:0; transform:translateX(46px);  } to { opacity:1; transform:none; } }
+
+    .float-anim    { animation: float 4s ease-in-out infinite; }
+    .pulse-anim    { animation: pulse-glow 3s ease-in-out infinite; }
+    .fade-in-up    { animation: fadeUp    0.8s ease both; }
+    .fade-in-left  { animation: fadeLeft  0.8s ease both; }
+    .fade-in-right { animation: fadeRight 0.8s ease both; }
+
+    /* ── Glow orbs ── */
+    .glow-orb {
+      position: absolute; border-radius: 50%;
+      width: 42rem; height: 42rem;
+      filter: blur(80px); pointer-events: none;
     }
-    @keyframes fadeInLeft {
-      from { opacity: 0; transform: translateX(-50px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes fadeInRight {
-      from { opacity: 0; transform: translateX(50px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    .fade-in-up { animation: fadeInUp 0.8s ease forwards; }
-    .fade-in-left { animation: fadeInLeft 0.8s ease forwards; }
-    .fade-in-right { animation: fadeInRight 0.8s ease forwards; }
-    .glass-card {
-      background: linear-gradient(135deg, rgba(61,169,214,0.15) 0%, rgba(245,216,0,0.08) 100%);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(61,169,214,0.4);
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, rgba(245,216,0,0.8) 0%, rgba(61,169,214,0.8) 100%);
-      border: 1px solid rgba(245,216,0,0.7);
-      border-radius: 9999px;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      font-weight: 600;
-      color: #000;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    .btn-primary:hover { transform: scale(1.05); filter: brightness(1.1); }
-    .btn-outline {
-      border: 1px solid rgba(61,169,214,0.7);
-      border-radius: 9999px;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      font-weight: 600;
-      color: white;
-      background: linear-gradient(135deg, rgba(245,216,0,0.1) 0%, rgba(61,169,214,0.1) 100%);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .btn-outline:hover { transform: scale(1.05); background: linear-gradient(135deg, rgba(245,216,0,0.2) 0%, rgba(61,169,214,0.2) 100%); }
-    .exchange-logo {
-      transition: all 0.3s ease;
-      filter: brightness(0.9);
-    }
-    .exchange-logo:hover { transform: scale(1.1); filter: brightness(1.2); }
-    .sol-badge {
-      background: linear-gradient(135deg, #9945FF, #14F195);
-      border-radius: 6px;
-      padding: 2px 8px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: white;
-    }
-    /* Smooth scroll */
+
+    /* ── DexScreener embed ── */
+    .dex-wrap { position: relative; width: 100%; padding-bottom: 56.25%; min-height: 400px; }
+    .dex-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 16px; }
+
+    /* ── Misc ── */
     html { scroll-behavior: smooth; }
-    /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #0a1628; }
     ::-webkit-scrollbar-thumb { background: rgba(61,169,214,0.5); border-radius: 3px; }
   </style>
 </head>
-<body class="font-primary text-white w-full h-auto overflow-x-hidden bg-cover-custom min-h-screen">
+<body class="font-primary text-white w-full overflow-x-hidden min-h-screen">
 
-  <!-- Fixed floating Buy Brett button -->
-  <button onclick="window.open('https://raydium.io/swap/?inputCurrency=sol&outputCurrency=ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX','_blank')"
-    style="position:fixed;bottom:20px;right:20px;padding:10px 20px;background:linear-gradient(135deg,#9945FF,#14F195);color:#fff;border:none;border-radius:5px;cursor:pointer;z-index:1000;font-family:Bangers,cursive;font-size:1.1rem;letter-spacing:1px;box-shadow:0 4px 15px rgba(153,69,255,0.4);">
-    Buy $BRETT
-  </button>
+  <!-- ──────────── Fixed CTA ──────────── -->
+  <a href="https://pump.fun/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer"
+     style="position:fixed;bottom:22px;right:22px;z-index:999;"
+     class="btn-pump" style="font-size:1.1rem;">
+    🚀 Buy on Pump.fun
+  </a>
 
-  <!-- NAVBAR -->
-  <nav class="p-8 relative z-50 bg-lyllw/40 backdrop-blur-sm" style="opacity:1;transform:translateY(0)">
-    <div class="flex justify-between items-center max-w-screen-xl mx-auto">
-      <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="BRETT" class="h-12 w-12 rounded-full object-cover" style="box-shadow:0 0 12px rgba(61,169,214,0.6)">
-      <div class="gap-x-12 items-center hidden lg:flex">
-        <a href="#about"><p class="font-semibold hover:text-lyllw transition-all ease-in-out duration-300 text-white">ABOUT</p></a>
-        <a href="#tokenomics"><p class="font-semibold hover:text-lyllw transition-all ease-in-out duration-300 text-white">TOKENOMICS</p></a>
-        <a href="#howtobuy"><p class="font-semibold hover:text-lyllw transition-all ease-in-out duration-300 text-white">HOW TO BUY</p></a>
-        <a href="#contact"><p class="font-semibold hover:text-lyllw transition-all ease-in-out duration-300 text-white">CONTACT</p></a>
-        <a href="https://t.me/basedbrett"><p class="font-semibold hover:text-lyllw transition-all ease-in-out duration-300 text-white">TELEGRAM</p></a>
-        <a href="https://x.com/basedbrettpf" target="_blank" rel="noopener noreferrer"><p class="font-semibold hover:text-lyllw transition-all ease-in-out duration-300 text-white">TWITTER</p></a>
+  <!-- ──────────── NAVBAR ──────────── -->
+  <nav style="position:sticky;top:0;z-index:100;backdrop-filter:blur(16px);background:rgba(5,14,34,0.7);border-bottom:1px solid rgba(61,169,214,0.2);">
+    <div class="flex justify-between items-center max-w-screen-xl mx-auto px-6 py-4">
+      <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="BRETT"
+           style="width:46px;height:46px;border-radius:50%;object-fit:cover;box-shadow:0 0 14px rgba(61,169,214,0.7);">
+      <div class="gap-x-8 items-center hidden lg:flex">
+        <a href="#about"     class="font-semibold text-white hover:text-yellow-300 transition-colors">ABOUT</a>
+        <a href="#tokenomics"class="font-semibold text-white hover:text-yellow-300 transition-colors">TOKENOMICS</a>
+        <a href="#chart"     class="font-semibold text-white hover:text-yellow-300 transition-colors">CHART</a>
+        <a href="#howtobuy"  class="font-semibold text-white hover:text-yellow-300 transition-colors">HOW TO BUY</a>
+        <a href="#contact"   class="font-semibold text-white hover:text-yellow-300 transition-colors">CONTACT</a>
       </div>
-      <div class="gap-x-4 items-center hidden lg:flex">
-        <a href="#howtobuy">
-          <button class="btn-outline text-white text-base font-semibold">Buy on Raydium</button>
-        </a>
-      </div>
+      <a href="https://pump.fun/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer" class="btn-pump" style="font-size:1rem;padding:0.6rem 1.4rem;">
+        🚀 Buy on Pump.fun
+      </a>
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <div class="w-full h-auto relative pb-24 bg-lyllw/40" id="home">
-    <!-- Glow orbs -->
-    <div class="glow-orb-1 pulse-anim" style="top:-320px;right:-320px;"></div>
-    <div class="glow-orb-2" style="bottom:0;left:-192px;animation:pulse-glow 4s ease-in-out infinite;"></div>
+  <!-- ──────────── HERO ──────────── -->
+  <section style="position:relative;overflow:hidden;" class="bg-lyllw/20 pb-24 pt-10">
+    <div class="glow-orb" style="background:radial-gradient(circle,rgba(153,69,255,0.38) 0%,transparent 70%);top:-260px;right:-240px;animation:pulse-glow 5s ease-in-out infinite;"></div>
+    <div class="glow-orb" style="background:radial-gradient(circle,rgba(245,216,0,0.22) 0%,transparent 70%);bottom:-120px;left:-200px;animation:pulse-glow 6s ease-in-out infinite 1s;"></div>
 
-    <div class="max-w-screen-xl mx-auto p-4 flex flex-col gap-y-12 items-center justify-center relative z-20">
-      <!-- Main hero row -->
-      <div class="flex items-center justify-center flex-col md:flex-row gap-y-8 w-full pt-8">
+    <div class="max-w-screen-xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10 md:gap-14" style="position:relative;z-index:2;">
 
-        <!-- Hero logo in circular frame (left) -->
-        <div class="w-full lg:w-1/2 flex justify-center items-center fade-in-up">
-          <div class="float-anim flex items-center justify-center" style="width:100%;max-width:420px;">
-            <!-- Outer glow ring -->
-            <div style="
-              position:relative;
-              width:380px; height:380px;
-              border-radius:50%;
-              background: conic-gradient(from 0deg, #9945FF, #14F195, #3da9d6, #9945FF);
-              padding: 5px;
-              box-shadow: 0 0 60px rgba(153,69,255,0.5), 0 0 120px rgba(20,241,149,0.3);
-              animation: spin-slow 8s linear infinite;
-            ">
-              <!-- Inner ring -->
-              <div style="
-                width:100%; height:100%;
-                border-radius:50%;
-                background: linear-gradient(135deg, rgba(61,169,214,0.3), rgba(153,69,255,0.2));
-                padding: 8px;
-              ">
-                <!-- Image circle -->
-                <img
-                  src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg"
-                  alt="Based Brett Logo"
-                  style="
-                    width:100%; height:100%;
-                    border-radius:50%;
-                    object-fit:cover;
-                    display:block;
-                    border: 3px solid rgba(61,169,214,0.6);
-                    box-shadow: inset 0 0 30px rgba(61,169,214,0.3);
-                  "
-                >
+      <!-- Circular logo -->
+      <div class="w-full md:w-1/2 flex justify-center fade-in-up">
+        <div class="float-anim">
+          <div style="width:320px;height:320px;border-radius:50%;padding:5px;box-shadow:0 0 70px rgba(153,69,255,0.5),0 0 140px rgba(20,241,149,0.2);animation:spin-slow 10s linear infinite;">
+            <!-- rainbow border via SVG background trick -->
+            <div style="width:100%;height:100%;border-radius:50%;background:conic-gradient(#9945FF,#14F195,#3da9d6,#f5d800,#9945FF);padding:5px;">
+              <div style="width:100%;height:100%;border-radius:50%;background:rgba(8,16,36,0.5);padding:8px;">
+                <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="Based Brett Logo"
+                     style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:2px solid rgba(61,169,214,0.5);">
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Text right -->
-        <div class="flex flex-col text-white w-full lg:w-1/2 items-center lg:items-start fade-in-left">
-          <p class="font-primary font-semibold tracking-[0.5rem] text-lyllw">INTRODUCING</p>
-          <p class="font-primary text-7xl lg:text-9xl text-white" style="-webkit-text-stroke:2px rgba(255,255,255,0.5);text-shadow:0 0 40px rgba(61,169,214,0.6)">BRETT</p>
-          <p class="font-primary text-3xl tracking-[0.3rem] text-center lg:text-left text-white/80">PEPE's best friend on <span class="text-transparent bg-clip-text" style="background:linear-gradient(90deg,#9945FF,#14F195)">SOLANA</span></p>
-          <p class="font-sans text-xl text-center lg:text-left mt-4 text-white/70 max-w-lg">one of crypto's most significant cultural icons and the most based memecoin on the Solana chain</p>
-          <div class="w-3/4 h-[1px] bg-white/30 my-6 w-full"></div>
+      <!-- Text -->
+      <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left fade-in-left">
+        <p class="font-primary tracking-[0.6rem] text-yellow-300 text-lg mb-1">INTRODUCING</p>
+        <h1 class="font-primary leading-none text-white"
+            style="font-size:clamp(5rem,11vw,9rem);-webkit-text-stroke:2px rgba(255,255,255,0.35);text-shadow:0 0 60px rgba(61,169,214,0.7);">
+          BRETT
+        </h1>
 
-          <!-- CA Box -->
-          <div class="flex items-center gap-x-3 flex-wrap gap-y-2">
-            <button onclick="copyCA()" class="px-4 py-3 border border-lyllw/70 rounded-full bg-lyllw/10 flex gap-x-3 items-center font-semibold hover:bg-lyllw/20 transition-all text-sm lg:text-base">
-              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
-              <span id="ca-display">ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX</span>
-            </button>
-            <span id="ca-copied" class="text-green-400 text-sm hidden">✓ Copied!</span>
-          </div>
+        <!-- SOLANA — solid green so always visible -->
+        <p class="font-primary text-3xl tracking-widest mt-2">
+          PEPE's best friend on
+          <span style="color:#14F195;text-shadow:0 0 18px rgba(20,241,149,0.85);">SOLANA</span>
+        </p>
 
-          <!-- Buy buttons -->
-          <div class="flex flex-col md:flex-row gap-x-4 gap-y-4 mt-6">
-            <a href="https://raydium.io/swap/?outputCurrency=ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer">
-              <button class="btn-primary text-xl font-primary tracking-wider">
-                Buy on Raydium
-                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"><path d="M11 19H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"></path><path d="M13 5h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5"></path><circle cx="12" cy="12" r="3"></circle><path d="m18 22-3-3 3-3"></path><path d="m6 2 3 3-3 3"></path></svg>
-              </button>
-            </a>
-            <a href="https://jup.ag/swap/SOL-ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer">
-              <button class="btn-outline text-xl font-primary tracking-wider">Jupiter Chart</button>
-            </a>
-          </div>
+        <p class="font-sans text-lg text-white/75 leading-relaxed mt-3 max-w-lg">
+          One of crypto's most significant cultural icons. The most based memecoin on the Solana chain.
+          Community-driven, zero taxes, contract renounced.
+        </p>
+
+        <div class="w-full h-px bg-white/20 my-5"></div>
+
+        <!-- CA copy -->
+        <div class="flex items-center gap-3 flex-wrap mb-5">
+          <button onclick="copyCA()"
+            class="flex items-center gap-2 px-4 py-3 rounded-full font-sans font-semibold text-sm text-white hover:bg-white/10 transition-all"
+            style="border:1px solid rgba(61,169,214,0.55);background:rgba(255,255,255,0.04);">
+            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em">
+              <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+            </svg>
+            <span id="ca-display" style="font-family:monospace;">xxxxxxxxxxxxxxx</span>
+          </button>
+          <span id="ca-copied" class="text-green-400 text-sm font-sans" style="display:none;">✓ Copied!</span>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex flex-wrap gap-3">
+          <a href="https://pump.fun/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer" class="btn-pump">
+            🚀 Buy on Pump.fun
+          </a>
+          <a href="https://raydium.io/swap/?outputCurrency=xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer" class="btn-outline">
+            Raydium
+          </a>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- BUY IT ON (Exchange logos) -->
-  <section class="w-full h-auto p-10 relative bg-lyllw/40">
-    <div class="max-w-7xl mx-auto glass-card p-5 xl:p-16 rounded-xl">
-      <div class="flex flex-col justify-center items-center text-6xl lg:text-9xl leading-[3rem] lg:leading-[5rem] mb-10">
-        <p class="text-center font-primary text-white">BUY IT ON</p>
-      </div>
-      <div class="flex flex-wrap justify-center gap-2">
-        <!-- Exchange logos using text badges since we can't load local images -->
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.bybit.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-white hover:bg-white/20 transition-all">Bybit</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.binance.us" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-yellow-400 hover:bg-white/20 transition-all">Binance US</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.kucoin.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-green-400 hover:bg-white/20 transition-all">KuCoin</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.gate.io" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-white hover:bg-white/20 transition-all">Gate.io</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.bitget.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-blue-400 hover:bg-white/20 transition-all">Bitget</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.mexc.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-white hover:bg-white/20 transition-all">MEXC</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.bithumb.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-orange-400 hover:bg-white/20 transition-all">Bithumb</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://phemex.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-purple-400 hover:bg-white/20 transition-all">Phemex</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://bingx.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-white hover:bg-white/20 transition-all">BingX</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://upbit.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-blue-300 hover:bg-white/20 transition-all">Upbit</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.bitmart.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-white hover:bg-white/20 transition-all">Bitmart</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://coinone.co.kr" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-cyan-400 hover:bg-white/20 transition-all">Coinone</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.lbank.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-white hover:bg-white/20 transition-all">LBank</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.coinex.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-teal-400 hover:bg-white/20 transition-all">CoinEX</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://poloniex.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-green-300 hover:bg-white/20 transition-all">Poloniex</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://bitvavo.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-indigo-400 hover:bg-white/20 transition-all">Bitvavo</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://ascendex.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-white hover:bg-white/20 transition-all">AscendEX</div></a></div>
-        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.bitrue.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-blue-400 hover:bg-white/20 transition-all">Bitrue</div></a></div>
-      </div>
-
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <div class="w-full h-auto bg-lyllw/40 py-24 relative" id="about">
-    <div class="max-w-screen-xl mx-auto p-4">
-      <div class="flex justify-between items-center gap-x-4 flex-col lg:flex-row py-4">
-        <p class="font-primary text-4xl lg:text-6xl leading-[2rem] lg:leading-[5rem] text-white text-stroke fade-in-right">BRETT</p>
-        <div class="w-full h-[2px] bg-gradient-to-r from-lyllw to-yllw hidden lg:block"></div>
-        <p class="font-primary tracking-[0.5rem] font-bold w-max whitespace-nowrap fade-in-left text-white">THE PEPE'S BESTFRIEND</p>
+  <!-- ──────────── DEXSCREENER CHART ──────────── -->
+  <section id="chart" class="py-20 px-4 bg-lyllw/20" style="position:relative;z-index:1;">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="font-primary text-white" style="font-size:clamp(3rem,7vw,6rem);text-shadow:0 0 30px rgba(61,169,214,0.5);">
+          LIVE CHART 📈
+        </h2>
+        <p class="font-sans text-white/55 mt-1">Powered by DexScreener</p>
+      </div>
+      <div class="glass-card rounded-2xl overflow-hidden p-1">
+        <div class="dex-wrap">
+          <iframe
+            src="https://dexscreener.com/solana/xxxxxxxxxxxxxxx?embed=1&theme=dark&trades=0&info=0"
+            title="DexScreener Chart"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <div class="flex justify-center mt-6">
+        <a href="https://dexscreener.com/solana/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer" class="btn-outline">
+          Open Full Chart on DexScreener ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────── ABOUT ──────────── -->
+  <section id="about" class="py-24 px-4 bg-lyllw/20" style="position:relative;z-index:1;">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="flex justify-between items-center flex-col lg:flex-row gap-4 mb-10">
+        <p class="font-primary text-white text-stroke fade-in-right" style="font-size:clamp(3rem,6vw,5rem);">BRETT</p>
+        <div class="flex-1 h-px bg-gradient-to-r from-lyllw to-yellow-400 hidden lg:block"></div>
+        <p class="font-primary text-white/75 tracking-[0.5rem] whitespace-nowrap fade-in-left">THE PEPE'S BESTFRIEND</p>
       </div>
 
-      <div class="glass-card flex flex-col lg:flex-row gap-y-8 items-center justify-center w-full p-12 rounded-2xl">
-        <!-- Brett about image -->
-        <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
-          <div class="float-anim" style="width:100%;max-width:360px;">
-            <img src="https://blog.btcc.com/wp-content/uploads/2024/04/GJ8CHjrWsAA_wp9.jpg" alt="Brett character" style="width:100%;border-radius:24px;filter:drop-shadow(0 0 30px rgba(61,169,214,0.5));">
+      <div class="glass-card flex flex-col lg:flex-row gap-10 items-center p-10 rounded-2xl">
+        <div class="w-full lg:w-1/2 flex justify-center">
+          <div class="float-anim" style="max-width:360px;width:100%;">
+            <img src="https://blog.btcc.com/wp-content/uploads/2024/04/GJ8CHjrWsAA_wp9.jpg"
+                 alt="Brett character"
+                 style="width:100%;border-radius:20px;filter:drop-shadow(0 0 28px rgba(61,169,214,0.5));">
           </div>
         </div>
-
-
-        <!-- About text -->
-        <div class="flex flex-col justify-center gap-y-4 w-full lg:w-1/2 text-center lg:text-left">
-          <h1 class="text-stroke-sm text-5xl font-primary fade-in-left">Who's Brett?!</h1>
-          <p class="text-2xl font-sans fade-in-left text-white/90">Brett is the legendary character from Matt Furie's Boys' club comic. He is a dancer and loves video games. Now he is living on the <strong>Solana blockchain</strong> as a fan tribute. He has become the mascot of the Solana chain.</p>
-          <div class="flex gap-x-4 items-center justify-center lg:justify-start mt-5">
-            <a href="https://t.me/basedbrett">
-              <button class="btn-outline text-xl font-primary">
-                Telegram
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em"><path d="M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z"/></svg>
-              </button>
-            </a>
+        <div class="flex flex-col gap-4 w-full lg:w-1/2 text-center lg:text-left">
+          <h2 class="font-primary text-white text-stroke-sm" style="font-size:3rem;">Who's Brett?!</h2>
+          <p class="font-sans text-xl text-white/85 leading-relaxed">
+            Brett is the legendary character from Matt Furie's Boys' Club comic. He is a dancer and loves video games.
+            Now he is living on the <strong>Solana blockchain</strong> as a fan tribute — the most based frog in all of crypto.
+          </p>
+          <p class="font-sans text-xl text-white/85 leading-relaxed">
+            100% community-driven. No team allocation, no pre-sale, no VC bags. Just Brett and his frens on Solana. WAGMI. 🐸
+          </p>
+          <div class="flex flex-wrap gap-3 justify-center lg:justify-start mt-2">
+            <a href="https://pump.fun/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer" class="btn-pump">🚀 Buy on Pump.fun</a>
+            <a href="#chart" class="btn-outline">Chart 📈</a>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- TOKENOMICS -->
-  <div class="w-full h-auto bg-lyllw/40 py-24 relative" id="tokenomics">
-    <div class="max-w-screen-xl mx-auto p-4">
-      <div class="glass-card gap-y-8 items-center justify-center w-full p-12 rounded-2xl">
-        <div class="flex flex-col md:flex-row">
-          <!-- Pie chart SVG -->
-          <div class="flex flex-col items-center justify-center">
-            <svg viewBox="0 0 300 300" width="280" height="280">
-              <!-- Pie: 85% LP, 10% Treasury, 5% CEX -->
-              <circle cx="150" cy="150" r="120" fill="none" stroke="#3da9d6" stroke-width="80" stroke-dasharray="639.8 0" stroke-dashoffset="0" opacity="0.8"/>
-              <circle cx="150" cy="150" r="120" fill="none" stroke="#9945FF" stroke-width="80" stroke-dasharray="75.3 564.4" stroke-dashoffset="-639.8" opacity="0.9"/>
-              <circle cx="150" cy="150" r="120" fill="none" stroke="#14F195" stroke-width="80" stroke-dasharray="37.7 602.1" stroke-dashoffset="-715.1" opacity="0.9"/>
-              <circle cx="150" cy="150" r="70" fill="rgba(10,22,40,0.9)"/>
-              <text x="150" y="145" text-anchor="middle" fill="white" font-family="Bangers,cursive" font-size="22">$BRETT</text>
-              <text x="150" y="168" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Bangers,cursive" font-size="14">SOLANA</text>
-            </svg>
-          </div>
+  <!-- ──────────── TOKENOMICS ──────────── -->
+  <section id="tokenomics" class="py-24 px-4 bg-lyllw/20" style="position:relative;z-index:1;">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="glass-card p-10 rounded-2xl">
 
-          <div class="items-center gap-y-4 w-full lg:w-1/2 text-center flex flex-col justify-center">
-            <h1 class="text-stroke-sm text-6xl md:text-8xl text-center font-primary fade-in-left">TOKENOMICS</h1>
-            <div class="text-center">
-              <p class="mt-5 text-5xl md:text-7xl font-primary fade-in-left flex items-center justify-center gap-3">
-                <span class="w-5 h-5 rounded-full inline-block" style="background:#3da9d6"></span>
-                85% LP
-              </p>
-              <p class="mt-5 text-5xl md:text-7xl font-primary fade-in-left flex items-center justify-center gap-3">
-                <span class="w-5 h-5 rounded-full inline-block" style="background:#9945FF"></span>
-                10% TREASURY
-              </p>
-              <p class="mt-5 text-5xl md:text-7xl font-primary fade-in-left flex items-center justify-center gap-3">
-                <span class="w-5 h-5 rounded-full inline-block" style="background:#14F195"></span>
-                5% CEX WALLET
-              </p>
-            </div>
+        <h2 class="font-primary text-center text-white text-stroke-sm mb-10"
+            style="font-size:clamp(3rem,7vw,6rem);text-shadow:0 0 30px rgba(61,169,214,0.4);">
+          TOKENOMICS
+        </h2>
+
+        <div class="flex flex-col md:flex-row gap-10 items-center justify-center mb-10">
+          <!-- Pie — pump.fun = 100% to pool -->
+          <svg viewBox="0 0 300 300" width="250" height="250" style="flex-shrink:0;">
+            <circle cx="150" cy="150" r="110" fill="none" stroke="#3da9d6" stroke-width="70" stroke-dasharray="691.2 0" opacity="0.85"/>
+            <circle cx="150" cy="150" r="62" fill="rgba(6,14,34,0.92)"/>
+            <text x="150" y="143" text-anchor="middle" fill="white"  font-family="Bangers,cursive" font-size="21">$BRETT</text>
+            <text x="150" y="164" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="Bangers,cursive" font-size="13">SOLANA</text>
+          </svg>
+
+          <div class="flex flex-col gap-4 text-center md:text-left">
+            <p class="font-primary text-white flex items-center justify-center md:justify-start gap-3" style="font-size:2.8rem;">
+              <span style="width:18px;height:18px;border-radius:50%;background:#3da9d6;flex-shrink:0;display:inline-block;"></span>
+              100% LIQUIDITY POOL
+            </p>
+            <p class="font-primary text-white flex items-center justify-center md:justify-start gap-3" style="font-size:2.8rem;">
+              <span style="width:18px;height:18px;border-radius:50%;background:#14F195;flex-shrink:0;display:inline-block;"></span>
+              0% TEAM TOKENS
+            </p>
+            <p class="font-primary text-white flex items-center justify-center md:justify-start gap-3" style="font-size:2.8rem;">
+              <span style="width:18px;height:18px;border-radius:50%;background:#f5d800;flex-shrink:0;display:inline-block;"></span>
+              0% TAX
+            </p>
           </div>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-y-5 gap-x-5 text-center text-4xl mt-8">
-          <div class="w-full rounded-3xl drop-shadow-lg duration-300 transition-all ease-in-out hover:scale-110 cursor-pointer" style="background:linear-gradient(135deg,rgba(61,169,214,0.4),rgba(245,216,0,0.2))">
-            <a href="https://solscan.io" target="_blank" rel="noopener noreferrer">
-              <h1 class="font-primary p-4 text-white">CONTRACT RENOUNCED</h1>
-            </a>
+        <!-- Badges -->
+        <div class="flex flex-col sm:flex-row gap-4 mb-10">
+          <div class="flex-1 rounded-2xl p-5 text-center hover:scale-105 transition-transform"
+               style="background:linear-gradient(135deg,rgba(61,169,214,0.28),rgba(245,216,0,0.12));">
+            <p class="font-primary text-xl text-white">🔒 CONTRACT RENOUNCED</p>
           </div>
-          <div class="w-full rounded-3xl drop-shadow-lg duration-300 transition-all ease-in-out hover:scale-110 cursor-pointer" style="background:linear-gradient(135deg,rgba(61,169,214,0.4),rgba(245,216,0,0.2))">
-            <a href="https://raydium.io" target="_blank" rel="noopener noreferrer">
-              <h1 class="font-primary p-4 text-white">LP LOCKED 365 DAYS</h1>
-            </a>
+          <div class="flex-1 rounded-2xl p-5 text-center hover:scale-105 transition-transform"
+               style="background:linear-gradient(135deg,rgba(61,169,214,0.28),rgba(245,216,0,0.12));">
+            <p class="font-primary text-xl text-white">🔥 LP BURNED</p>
           </div>
+          <div class="flex-1 rounded-2xl p-5 text-center hover:scale-105 transition-transform"
+               style="background:linear-gradient(135deg,rgba(61,169,214,0.28),rgba(245,216,0,0.12));">
+            <p class="font-primary text-xl text-white">🌕 1B TOTAL SUPPLY</p>
+          </div>
+        </div>
+
+        <!-- Pump.fun CTA -->
+        <div class="flex justify-center">
+          <a href="https://pump.fun/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer"
+             class="btn-pump" style="font-size:1.6rem;padding:1rem 3rem;">
+            🚀 BUY ON PUMP.FUN
+          </a>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- HOW TO BUY + central Brett orb -->
-  <div class="w-full h-auto relative bg-lyllw/40 text-white" id="howtobuy">
-    <div class="w-full h-screen absolute z-10 opacity-100"></div>
-    <div class="max-w-screen-xl mx-auto p-4 flex flex-col gap-y-8 items-center justify-center relative z-20 py-24">
-      <div class="flex flex-col items-center font-bold gap-y-4 z-50">
-        <div class="flex flex-col items-center">
-          <p class="font-primary tracking-[0.5rem] text-white/70">PEPE'S</p>
-          <p class="font-primary tracking-[0.5rem] text-white/70">BESTFRIEND</p>
+  <!-- ──────────── HOW TO BUY ──────────── -->
+  <section id="howtobuy" class="py-24 px-4 bg-lyllw/20" style="position:relative;z-index:1;">
+    <div class="max-w-screen-xl mx-auto">
+
+      <div class="flex flex-col items-center gap-4 mb-10">
+        <p class="font-primary text-white/55 tracking-[0.5rem]">PEPE'S BESTFRIEND</p>
+        <div class="pulse-anim rounded-full p-4"
+             style="background:linear-gradient(135deg,rgba(61,169,214,0.45),rgba(153,69,255,0.28));border:1px solid rgba(61,169,214,0.45);">
+          <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="Brett"
+               style="width:90px;height:90px;border-radius:50%;object-fit:cover;display:block;">
         </div>
-        <!-- Central Brett icon -->
-        <div class="p-6 rounded-full border border-lyllw/70 pulse-anim" style="background:linear-gradient(to bottom,rgba(30,40,60,0.8),rgba(0,0,0,0.8))">
-          <div class="rounded-full p-4" style="background:linear-gradient(135deg,rgba(61,169,214,0.8),rgba(245,216,0,0.8))">
-            <div class="rounded-full w-40 h-40 overflow-hidden flex items-center justify-center" style="background:rgba(61,169,214,0.2)">
-              <svg viewBox="0 0 200 200" width="160" height="160">
-                <circle cx="100" cy="120" r="70" fill="rgb(61,169,214)"/>
-                <ellipse cx="100" cy="130" rx="50" ry="30" fill="rgb(26,140,187)" opacity="0.6"/>
-                <ellipse cx="75" cy="95" rx="18" ry="20" fill="white"/>
-                <ellipse cx="125" cy="95" rx="18" ry="20" fill="white"/>
-                <circle cx="78" cy="98" r="10" fill="black"/>
-                <circle cx="128" cy="98" r="10" fill="black"/>
-                <circle cx="81" cy="94" r="3.5" fill="white"/>
-                <circle cx="131" cy="94" r="3.5" fill="white"/>
-                <path d="M75 128 Q100 148 125 128" stroke="rgb(172,27,102)" stroke-width="4" fill="rgb(252,108,182)" stroke-linecap="round"/>
-                <ellipse cx="74" cy="120" rx="12" ry="8" fill="rgb(252,107,182)"/>
-                <ellipse cx="126" cy="120" rx="12" ry="8" fill="rgb(252,107,182)"/>
-              </svg>
-            </div>
-          </div>
-        </div>
+        <p class="font-primary text-stroke" style="font-size:clamp(4rem,9vw,7rem);line-height:1;">BRETT</p>
       </div>
 
-      <!-- How to buy cards -->
-      <div class="glass-card flex flex-col gap-y-8 items-center justify-center w-full pt-24 pb-12 rounded-2xl relative overflow-hidden backdrop-blur-lg">
-        <div class="flex flex-col justify-center items-center">
-          <p class="font-primary text-stroke text-7xl lg:text-9xl">BRETT</p>
-        </div>
-
-        <div class="flex p-6 gap-x-4 gap-y-8 flex-col md:flex-row w-full">
-          <!-- Step 1 -->
-          <div class="w-full glass-card rounded-xl p-6 text-center">
+      <div class="glass-card rounded-2xl p-10">
+        <div class="flex flex-col md:flex-row gap-6 mb-10">
+          <div class="flex-1 glass-card rounded-xl p-7 text-center">
             <div class="text-5xl mb-3">👛</div>
-            <h3 class="font-primary text-2xl text-lyllw mb-2">1. GET A WALLET</h3>
-            <p class="font-sans text-white/80">Download <strong>Phantom</strong> or <strong>Solflare</strong> wallet. Create an account and safely store your seed phrase.</p>
+            <h3 class="font-primary text-2xl text-yellow-300 mb-2">1. GET A WALLET</h3>
+            <p class="font-sans text-white/80 leading-relaxed">Download <strong>Phantom</strong> or <strong>Solflare</strong>. Create an account and store your seed phrase safely.</p>
           </div>
-          <!-- Step 2 -->
-          <div class="w-full glass-card rounded-xl p-6 text-center">
+          <div class="flex-1 glass-card rounded-xl p-7 text-center">
             <div class="text-5xl mb-3">💰</div>
-            <h3 class="font-primary text-2xl text-lyllw mb-2">2. GET SOME SOL</h3>
-            <p class="font-sans text-white/80">Buy SOL from <strong>Coinbase</strong>, <strong>Binance</strong>, or <strong>Kraken</strong>, then send it to your Phantom wallet.</p>
+            <h3 class="font-primary text-2xl text-yellow-300 mb-2">2. GET SOME SOL</h3>
+            <p class="font-sans text-white/80 leading-relaxed">Buy SOL on <strong>Coinbase</strong>, <strong>Binance</strong>, or any exchange, then send it to your Phantom wallet.</p>
           </div>
-          <!-- Step 3 -->
-          <div class="w-full glass-card rounded-xl p-6 text-center">
-            <div class="text-5xl mb-3">🔄</div>
-            <h3 class="font-primary text-2xl text-lyllw mb-2">3. SWAP FOR $BRETT</h3>
-            <p class="font-sans text-white/80">Go to <strong>Raydium</strong> or <strong>Jupiter</strong>, paste the CA, set slippage to 3-5% and swap SOL for $BRETT!</p>
+          <div class="flex-1 glass-card rounded-xl p-7 text-center">
+            <div class="text-5xl mb-3">🚀</div>
+            <h3 class="font-primary text-2xl text-yellow-300 mb-2">3. BUY ON PUMP.FUN</h3>
+            <p class="font-sans text-white/80 leading-relaxed">Go to <strong>pump.fun</strong>, search <strong>$BRETT</strong> or paste the CA, connect your wallet and swap SOL for $BRETT!</p>
           </div>
         </div>
+        <div class="flex justify-center flex-wrap gap-4">
+          <a href="https://pump.fun/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer"
+             class="btn-pump" style="font-size:1.4rem;padding:0.9rem 2.4rem;">🚀 Buy on Pump.fun</a>
+          <a href="https://dexscreener.com/solana/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer"
+             class="btn-outline" style="font-size:1.4rem;padding:0.9rem 2.4rem;">DexScreener Chart</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="flex gap-x-4">
-          <a href="https://raydium.io/swap/?outputCurrency=ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer">
-            <button class="btn-primary text-xl font-primary px-8 py-4">
-              Buy Now
-              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
-            </button>
-          </a>
-          <a href="https://dexscreener.com/solana/ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer">
-            <button class="btn-outline text-xl font-primary px-8 py-4">See Charts</button>
+  <!-- ──────────── UTILITIES ──────────── -->
+  <section class="py-20 px-4 bg-lyllw/20" style="position:relative;z-index:1;">
+    <div class="max-w-screen-md mx-auto flex flex-col items-center gap-5">
+      <h2 class="font-primary text-white text-center" style="font-size:clamp(3rem,6vw,5rem);">UTILITIES</h2>
+      <div class="glass-card rounded-2xl p-10 w-full">
+        <p class="font-primary text-lyllw text-3xl mb-3">Strong Community:</p>
+        <p class="font-sans text-white/80 leading-relaxed">BRETT is powered entirely by its community. No team, no VCs — just holders who believe in the meme. The community drives everything from marketing to exchange listings.</p>
+      </div>
+      <div class="glass-card rounded-2xl p-10 w-full">
+        <p class="font-primary text-lyllw text-3xl mb-3">Solana Ecosystem:</p>
+        <p class="font-sans text-white/80 leading-relaxed">Built on Solana for blazing-fast transactions and near-zero fees. Traded on Raydium, tracked on DexScreener, launched on Pump.fun — the most dynamic memecoin launchpad in crypto.</p>
+      </div>
+      <div class="glass-card rounded-2xl p-10 w-full">
+        <p class="font-primary text-lyllw text-3xl mb-3">Fully Transparent:</p>
+        <p class="font-sans text-white/80 leading-relaxed">Contract renounced, LP burned, 0% tax — everything is on-chain and verifiable. No rugs, no dev wallet, no hidden fees. Just vibes and gains.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────── CONTACT ──────────── -->
+  <section id="contact" class="py-24 px-4 bg-lyllw/20" style="position:relative;z-index:1;">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="flex justify-between items-center flex-col lg:flex-row gap-4 mb-10">
+        <p class="font-primary text-white text-stroke-sm whitespace-nowrap fade-in-right" style="font-size:clamp(2.5rem,5vw,4rem);">contact us</p>
+        <div class="flex-1 h-px bg-gradient-to-r from-white/40 to-transparent hidden lg:block"></div>
+        <p class="font-primary text-white/70 tracking-[0.5rem] whitespace-nowrap fade-in-left">CONNECT WITH BRETT</p>
+      </div>
+      <div class="flex flex-col items-center gap-8">
+        <a href="mailto:contact@basedbrett.com"
+           class="font-primary text-stroke-sm hover:text-yellow-300 transition-colors"
+           style="font-size:clamp(1.5rem,4vw,3rem);">
+          contact@basedbrett.com
+        </a>
+        <!-- X / Twitter icon only — no Telegram -->
+        <div class="flex gap-6" style="font-size:3.5rem;">
+          <a href="https://x.com/basedbrettpf" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"
+             class="text-white hover:text-yellow-300 transition-colors">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em">
+              <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+            </svg>
           </a>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- UTILITIES -->
-  <div class="w-full h-auto py-24 relative bg-lyllw/40 text-white">
-    <div class="max-w-screen-md mx-auto p-4 flex flex-col items-center justify-center relative z-20">
-      <p class="font-primary text-4xl lg:text-6xl leading-[2rem] lg:leading-[5rem] text-white p-4">UTILITIES</p>
-      <div class="w-full flex flex-col gap-y-4">
-        <div class="glass-card flex flex-col lg:flex-row gap-y-8 items-center w-full p-12 rounded-2xl">
-          <div class="flex flex-col justify-center gap-y-4 w-full text-center lg:text-left">
-            <p class="font-primary text-3xl lg:text-4xl text-lyllw">Strong Partnerships:</p>
-            <p class="font-sans text-white/80">BRETT has forged strategic partnerships with leading companies in the Solana crypto space, which will help to ensure the project's long-term viability and growth.</p>
-          </div>
-        </div>
-        <div class="glass-card flex flex-col lg:flex-row gap-y-8 items-center w-full p-12 rounded-2xl">
-          <div class="flex flex-col justify-center gap-y-4 w-full text-center lg:text-left">
-            <p class="font-primary text-3xl lg:text-4xl text-lyllw">Growing Ecosystem:</p>
-            <p class="font-sans text-white/80">The Solana ecosystem is rapidly expanding with blazing fast transactions and minimal fees. This growing ecosystem provides a strong foundation for BRETT's success, as it allows the project to leverage the resources and expertise of the Solana community. As Solana continues to grow, so too will the potential for BRETT to thrive.</p>
-          </div>
-        </div>
-        <div class="glass-card flex flex-col lg:flex-row gap-y-8 items-center w-full p-12 rounded-2xl">
-          <div class="flex flex-col justify-center gap-y-4 w-full text-center lg:text-left">
-            <p class="font-primary text-3xl lg:text-4xl text-lyllw">Strong Community Support:</p>
-            <p class="font-sans text-white/80">The Solana chain and BRETT have garnered significant support from the crypto community, with many prominent figures expressing their bullish outlook on the project. This strong community backing provides a solid foundation for growth, as it ensures that there is a dedicated user base to support and promote the memecoin.</p>
-          </div>
-        </div>
+  <!-- ──────────── FOOTER ──────────── -->
+  <footer style="background:rgba(0,0,0,0.75);position:relative;z-index:1;border-top:1px solid rgba(61,169,214,0.2);">
+    <div class="max-w-screen-xl mx-auto flex flex-col items-center gap-4 py-12 px-4">
+      <div class="flex items-center justify-center gap-5 flex-wrap">
+        <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="BRETT"
+             style="width:56px;height:56px;border-radius:50%;object-fit:cover;box-shadow:0 0 18px rgba(61,169,214,0.5);">
+        <p class="font-primary text-white text-stroke"
+           style="font-size:clamp(2.5rem,7vw,5.5rem);line-height:1;text-shadow:0 0 50px rgba(61,169,214,0.4);">
+          BASED BRETT
+        </p>
       </div>
+      <p class="font-sans text-white/40 text-sm text-center max-w-lg leading-relaxed">
+        $BRETT is a memecoin for entertainment purposes only. This is not financial advice. Always do your own research before investing in any cryptocurrency.
+      </p>
+      <p class="font-sans text-white/25 text-xs">Copyright &copy; 2026. All rights reserved.</p>
     </div>
-  </div>
-
-  <!-- CONTACT -->
-  <div class="w-full h-auto py-24 relative bg-lyllw/40" id="contact">
-    <div class="max-w-screen-xl mx-auto p-4">
-      <div class="flex justify-between items-center gap-x-4 flex-col lg:flex-row py-4">
-        <p class="font-primary text-4xl lg:text-6xl leading-[2rem] lg:leading-[5rem] text-white text-stroke-sm whitespace-nowrap fade-in-right">contact us</p>
-        <div class="w-full h-[2px] bg-gradient-to-r from-white to-white/0 hidden lg:block"></div>
-        <p class="font-primary tracking-[0.5rem] font-bold w-max whitespace-nowrap text-white fade-in-left">CONNECT WITH BRETT</p>
-      </div>
-      <div class="flex justify-between items-center gap-x-4 gap-y-16 p-4 lg:px-24 lg:py-12 flex-col">
-        <div class="flex gap-x-4 gap-y-4 flex-col lg:flex-row items-center justify-center">
-          <a href="mailto:contact@basedbrett.com" target="_blank" rel="noopener noreferrer">
-            <p class="font-semibold underline hover:text-lyllw transition-all ease-in-out duration-300 text-3xl md:text-5xl font-primary text-stroke-sm">contact@basedbrett.com</p>
-          </a>
-        </div>
-        <div class="flex gap-x-6 text-6xl text-white">
-          <a href="https://t.me/basedbrett" target="_blank" rel="noopener noreferrer">
-            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="hover:text-lyllw cursor-pointer transition-all ease-in-out duration-300" height="1em" width="1em"><path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"></path></svg>
-          </a>
-          <a href="https://x.com/basedbrettpf" target="_blank" rel="noopener noreferrer">
-            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="hover:text-lyllw cursor-pointer transition-all ease-in-out duration-300" height="1em" width="1em"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="w-full h-auto bg-black/60 relative bg-lyllw/40">
-    <div class="max-w-screen-xl mx-auto flex flex-col gap-y-4">
-      <div class="flex items-center justify-center gap-6 py-12">
-        <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="BRETT" class="w-20 h-20 rounded-full object-cover" style="box-shadow:0 0 24px rgba(61,169,214,0.5)">
-        <p class="font-primary text-9xl text-center text-white text-stroke" style="text-shadow:0 0 60px rgba(61,169,214,0.4)">BASED BRETT</p>
-      </div>
-      <div class="flex flex-col md:flex-row items-center justify-center gap-x-10 text-white/70 font-sans pb-4">
-        <span class="flex items-center gap-x-2">
-          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 7V3H2v18h20V7H12zm-2 12H4v-2h6v2zm0-4H4v-2h6v2zm0-4H4V9h6v2zm0-4H4V5h6v2zm10 12h-8V9h8v10zm-2-8h-4v2h4v-2zm0 4h-4v2h4v-2z"></path></svg>
-          BRETT BROS - FZCO
-        </span>
-        <span class="flex items-center gap-x-2">
-          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-          DSO IFZA Properties, Dubai Silicon Oasis
-        </span>
-        <span class="flex items-center gap-x-2">
-          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em"><path d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path></svg>
-          +971 50 577 4317
-        </span>
-      </div>
-      <div class="flex justify-center w-full py-4">
-        <p class="text-white/50 font-sans text-sm">Copyright © 2025. All rights reserved.</p>
-      </div>
-    </div>
-  </div>
+  </footer>
 
   <script>
-    // CA copy
+    const CA = 'xxxxxxxxxxxxxxx';
+
     function copyCA() {
-      const ca = 'ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX';
-      navigator.clipboard.writeText(ca).then(() => {
+      const done = () => {
         const el = document.getElementById('ca-copied');
-        el.classList.remove('hidden');
-        setTimeout(() => el.classList.add('hidden'), 2000);
-      });
+        el.style.display = 'inline';
+        setTimeout(() => { el.style.display = 'none'; }, 2000);
+      };
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(CA).then(done).catch(done);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = CA; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta);
+        done();
+      }
     }
 
-    // Scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'none';
+    // Reveal fade-in elements on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'none';
+          io.unobserve(e.target);
         }
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
-      observer.observe(el);
-    });
-
-    // Mobile menu toggle (simple)
-    document.addEventListener('DOMContentLoaded', () => {
-      // Smooth entrance for hero
-      document.querySelectorAll('.fade-in-up').forEach((el, i) => {
-        el.style.animationDelay = (i * 0.1) + 's';
-      });
-    });
+    document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => io.observe(el));
   </script>
 </body>
 </html>
