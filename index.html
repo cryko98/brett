@@ -86,6 +86,10 @@
       0%, 100% { opacity: 0.5; transform: scale(1); }
       50% { opacity: 0.8; transform: scale(1.05); }
     }
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
     .float-anim { animation: float 4s ease-in-out infinite; }
     .pulse-anim { animation: pulse-glow 3s ease-in-out infinite; }
     @keyframes fadeInUp {
@@ -157,7 +161,7 @@
 <body class="font-primary text-white w-full h-auto overflow-x-hidden bg-cover-custom min-h-screen">
 
   <!-- Fixed floating Buy Brett button -->
-  <button onclick="window.open('https://raydium.io/swap/?inputCurrency=sol&outputCurrency=xxxxxxxxxxxxxxx','_blank')"
+  <button onclick="window.open('https://raydium.io/swap/?inputCurrency=sol&outputCurrency=ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX','_blank')"
     style="position:fixed;bottom:20px;right:20px;padding:10px 20px;background:linear-gradient(135deg,#9945FF,#14F195);color:#fff;border:none;border-radius:5px;cursor:pointer;z-index:1000;font-family:Bangers,cursive;font-size:1.1rem;letter-spacing:1px;box-shadow:0 4px 15px rgba(153,69,255,0.4);">
     Buy $BRETT
   </button>
@@ -172,6 +176,7 @@
         <a href="#howtobuy"><p class="font-semibold hover:text-lyllw transition-all ease-in-out duration-300 text-white">HOW TO BUY</p></a>
         <a href="#contact"><p class="font-semibold hover:text-lyllw transition-all ease-in-out duration-300 text-white">CONTACT</p></a>
         <a href="https://t.me/basedbrett"><p class="font-semibold hover:text-lyllw transition-all ease-in-out duration-300 text-white">TELEGRAM</p></a>
+        <a href="https://x.com/basedbrettpf" target="_blank" rel="noopener noreferrer"><p class="font-semibold hover:text-lyllw transition-all ease-in-out duration-300 text-white">TWITTER</p></a>
       </div>
       <div class="gap-x-4 items-center hidden lg:flex">
         <a href="#howtobuy">
@@ -190,95 +195,42 @@
     <div class="max-w-screen-xl mx-auto p-4 flex flex-col gap-y-12 items-center justify-center relative z-20">
       <!-- Main hero row -->
       <div class="flex items-center justify-center flex-col md:flex-row gap-y-8 w-full pt-8">
-        <!-- Brett Lottie SVG (left) -->
+
+        <!-- Hero logo in circular frame (left) -->
         <div class="w-full lg:w-1/2 flex justify-center items-center fade-in-up">
-          <div class="float-anim" style="width:100%;max-width:480px;">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" width="512" height="512" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;filter:drop-shadow(0 0 30px rgba(61,169,214,0.4))">
-              <defs><clipPath id="clip_hero"><rect width="512" height="512" x="0" y="0"/></clipPath></defs>
-              <g clip-path="url(#clip_hero)">
-                <!-- Body -->
-                <g transform="matrix(1.68,−0.49,0.49,1.68,−300.69,−92.52)" opacity="1">
-                  <g transform="matrix(1,0,0,1,255.74,291.66)">
-                    <path fill="rgb(61,169,214)" d="M-82.18,-51.66 C-97.49,-28.32 -110.35,-0.47 -108.1,34.34 C-105.74,70.84 -76.15,84.08 -65.48,94.4 C-30.9,133.64 42.41,131.51 79.98,89.01 C92.72,74.33 108.76,68.34 109.22,30.96 C109.56,4.11 98.4,-29.58 81.45,-53.49 C52.26,-94.66 26.76,-93.46 -1.05,-93.32 C-30.24,-93.16 -58.24,-88.16 -82.18,-51.66z"/>
-                    <path fill="rgb(26,140,187)" d="M57.61,107.92 C65.6,103.03 73.15,96.74 79.98,89.01 C92.72,74.33 108.76,68.34 109.22,30.96 C109.56,4.11 98.4,-29.58 81.45,-53.49 C73.09,-65.28 65.03,-73.6 57.13,-79.46 C116.76,-1.16 101.86,40.98 57.61,107.92z"/>
-                    <path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M-82.18,-51.66 C-97.49,-28.32 -110.35,-0.47 -108.1,34.34 C-105.74,70.84 -76.15,84.08 -65.48,94.4 C-30.9,133.64 42.41,131.51 79.98,89.01 C92.72,74.33 108.76,68.34 109.22,30.96 C109.56,4.11 98.4,-29.58 81.45,-53.49 C52.26,-94.66 26.76,-93.46 -1.05,-93.32 C-30.24,-93.16 -58.24,-88.16 -82.18,-51.66z"/>
-                  </g>
-                </g>
-                <!-- Eyes left -->
-                <g transform="matrix(0.69,-0.45,0.45,0.69,-88.54,88.44)">
-                  <g transform="matrix(1,0,0,1,189.59,246.38)">
-                    <path fill="rgb(255,255,255)" d="M0.71,-29.56 C28.68,-29.56 51.6,-17.64 51.6,-0.22 C51.6,17.2 37.15,28.63 1.92,29.12 C-33.3,29.56 -51.6,21.27 -51.38,-1.21 C-51.21,-22.31 -27.25,-29.56 0.71,-29.56z"/>
-                    <path stroke-linecap="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M0.71,-29.56 C28.68,-29.56 51.6,-17.64 51.6,-0.22 C51.6,17.2 37.15,28.63 1.92,29.12 C-33.3,29.56 -51.6,21.27 -51.38,-1.21 C-51.21,-22.31 -27.25,-29.56 0.71,-29.56z"/>
-                  </g>
-                  <g transform="matrix(1,0,0,1,191.76,248.45)">
-                    <path fill="rgb(0,0,0)" d="M0.03,19.26 C13.49,19.26 24.48,10.63 24.48,0.03 C24.48,-10.58 13.49,-19.26 0.03,-19.26 C-13.49,-19.26 -24.48,-10.58 -24.48,0.03 C-24.48,10.63 -13.49,19.26 0.03,19.26z"/>
-                  </g>
-                  <g transform="matrix(1,0,0,1,201.6,251.51)">
-                    <path fill="rgb(255,255,255)" d="M7.12,-1.47 C10.69,0.34 7.61,3.42 4.84,5.89 C1.16,9.18 -2.16,10.02 -4.49,8.24 C-7.63,5.84 -11.3,-0.08 -6.67,-1.8 C-3.99,-2.8 -2.82,0.93 -0.08,0.77 C2.96,0.6 5.27,-2.45 7.12,-1.47z"/>
-                  </g>
-                  <!-- Eye iris shine -->
-                  <g transform="matrix(1,0,0,1,188.71,226.55)">
-                    <path fill="rgb(61,169,214)" d="M-1.67,-21.82 C26.68,-22.31 56.6,-3.55 55.65,28.5 C29.17,-6.36 -25.11,-15.25 -48.13,36.77 C-63.23,0.1 -31.62,-21.32 -1.67,-21.82z"/>
-                    <path stroke-linecap="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M-1.67,-21.82 C26.68,-22.31 56.6,-3.55 55.65,28.5 C29.17,-6.36 -25.11,-15.25 -48.13,36.77 C-63.23,0.1 -31.62,-21.32 -1.67,-21.82z"/>
-                  </g>
-                </g>
-                <!-- Eyes right -->
-                <g transform="matrix(-0.82,-0.01,-0.01,0.82,479.7,-77.26)">
-                  <g transform="matrix(1,0,0,1,189.59,246.38)">
-                    <path fill="rgb(255,255,255)" d="M0.71,-29.56 C28.68,-29.56 51.6,-17.64 51.6,-0.22 C51.6,17.2 37.15,28.63 1.92,29.12 C-33.3,29.56 -51.6,21.27 -51.38,-1.21 C-51.21,-22.31 -27.25,-29.56 0.71,-29.56z"/>
-                    <path stroke-linecap="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M0.71,-29.56 C28.68,-29.56 51.6,-17.64 51.6,-0.22 C51.6,17.2 37.15,28.63 1.92,29.12 C-33.3,29.56 -51.6,21.27 -51.38,-1.21 C-51.21,-22.31 -27.25,-29.56 0.71,-29.56z"/>
-                  </g>
-                  <g transform="matrix(1,0,0,1,191.76,248.45)">
-                    <path fill="rgb(0,0,0)" d="M0.03,19.26 C13.49,19.26 24.48,10.63 24.48,0.03 C24.48,-10.58 13.49,-19.26 0.03,-19.26 C-13.49,-19.26 -24.48,-10.58 -24.48,0.03 C-24.48,10.63 -13.49,19.26 0.03,19.26z"/>
-                  </g>
-                  <g transform="matrix(-0.33,0.95,-0.95,-0.33,181.77,251.96)">
-                    <path fill="rgb(255,255,255)" d="M7.26,-7.49 C9.56,-3.53 8.52,-1.86 6.67,2.72 C4.94,7.03 1.8,10.36 0.09,6.74 C-1.96,2.37 1.01,1.48 0.55,-0.6 C0.02,-3.03 -3.71,-4.39 -4,-7.27 C-4.49,-12.23 4.95,-11.45 7.26,-7.49z"/>
-                  </g>
-                  <g transform="matrix(1,0,0,1,188.71,226.55)">
-                    <path fill="rgb(61,169,214)" d="M-1.67,-21.82 C26.68,-22.31 56.6,-3.55 55.65,28.5 C29.17,-6.36 -25.11,-15.25 -48.13,36.77 C-63.23,0.1 -31.62,-21.32 -1.67,-21.82z"/>
-                  </g>
-                </g>
-                <!-- Mouth -->
-                <g transform="matrix(3.02,-0.96,0.96,3.02,-822.5,-499.45)">
-                  <g transform="matrix(1,0,0,1,253.63,315.62)">
-                    <path fill="rgb(252,108,182)" d="M-50.47,-17.89 C-59.01,0.44 -66.63,42.52 -48.43,64.25 C-39.53,74.87 -14.07,78.72 2.57,78.77 C20.04,78.39 47.19,75.08 55.39,62.56 C71.8,37.51 60.64,-2.21 50.28,-21.88 C40.74,-39.99 21.85,-38.62 2.24,-33.04 C-16.65,-39.62 -40.56,-39.16 -50.47,-17.89z"/>
-                    <path stroke-linecap="round" fill-opacity="0" stroke="rgb(172,27,102)" stroke-width="6" d="M-50.47,-17.89 C-59.01,0.44 -66.63,42.52 -48.43,64.25 C-39.53,74.87 -14.07,78.72 2.57,78.77 C20.04,78.39 47.19,75.08 55.39,62.56 C71.8,37.51 60.64,-2.21 50.28,-21.88 C40.74,-39.99 21.85,-38.62 2.24,-33.04 C-16.65,-39.62 -40.56,-39.16 -50.47,-17.89z"/>
-                  </g>
-                </g>
-                <!-- Nose freckles/hat band -->
-                <g transform="matrix(2.57,0.01,-0.01,2.58,-133.13,-160.88)">
-                  <g transform="matrix(1,0,0.18,1,120.57,232.0)">
-                    <path fill="rgb(5,0,44)" fill-opacity="0.95" d="M-19.69,-11.28 C-20.03,-3.01 -15.29,11.45 -7.3,11.28 C-2.45,11.2 2.9,11.31 8.18,11.06 C12.91,10.83 16.23,8.62 17.22,4.9 C17.84,2.52 19.14,-1.91 19.53,-4.38 L15.37,-11.25 L-19.69,-11.28z"/>
-                  </g>
-                  <!-- Hat flame details -->
-                  <g transform="matrix(1,0,0,1,-7.18,-0.02)">
-                    <path fill="rgb(255,255,255)" d="M116.31,222.02 C113.68,226.2 111.23,231.06 114.07,233.09 C116.64,234.93 116.84,236.49 115.14,239.71 C116.06,241.08 117.81,242.5 119.07,242.5 C121.11,239.0 121.98,234.92 119.6,232.36 C116.06,228.56 119.61,225.31 122.04,222.11 C120.39,222.11 117.28,222.07 116.31,222.02z"/>
-                  </g>
-                </g>
-                <!-- Left arm -->
-                <g transform="matrix(0.97,-0.19,0.2,0.97,242.23,468.51)">
-                  <g>
-                    <path fill="rgb(61,169,214)" d="M-206,-55 C-205.25,-48 -207.4,-44.63 -207.38,-42.88 C-207.25,-34.88 -202.78,-29.96 -202.13,-26.63 C-201.89,-25.43 -201.72,-24.99 -201.47,-23.97 C-201.43,-22.99 -201.18,-21.78 -201.22,-20.94 C-204.01,-5.32 -150.74,13.21 -155.09,-12.28 C-154.86,-16.67 -155.06,-21.82 -154.27,-25.79 C-153.47,-34.26 -152.44,-40.45 -152,-47.5 C-151.01,-104.64 -206.75,-62 -206,-55z"/>
-                    <path fill="rgb(34,147,193)" d="M-159.74,-1.16 C-156.1,-2.95 -154.1,-6.48 -155.09,-12.28 C-154.86,-16.67 -155.06,-21.82 -154.27,-25.79 C-153.47,-34.26 -152.44,-40.45 -152,-47.5 C-151.77,-60.91 -154.66,-68.83 -159.22,-73 C-160.13,-73.84 -172.1,4.92 -159.74,-1.16z"/>
-                    <path stroke-linecap="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="7" d="M-155.09,-12.28 C-154.86,-16.67 -155.06,-21.82 -154.27,-25.79 C-153.47,-34.26 -152.44,-40.45 -152,-47.5 C-151.01,-104.64 -206.75,-62 -206,-55 C-205.25,-48 -207.4,-44.63 -207.38,-42.88 C-207.25,-34.88 -202.78,-29.96 -202.13,-26.63 C-201.89,-25.43 -201.72,-24.99 -201.47,-23.97 C-201.43,-22.99 -201.18,-21.78 -201.22,-20.94"/>
-                  </g>
-                </g>
-                <!-- Right arm -->
-                <g transform="matrix(0.95,0.29,-0.29,0.97,552.99,561.82)">
-                  <g>
-                    <path fill="rgb(61,169,214)" d="M-205.37,-59.88 C-204.62,-52.88 -202.92,-45.7 -202.9,-42.3 C-202.87,-33.87 -203.24,-24.59 -203.13,-19.9 C-203.91,-10.41 -203.45,-15.75 -203.72,-12.5 C-205.05,3.57 -153.92,-2.8 -156.46,-23.54 C-156.93,-27.42 -156.13,-29.22 -156.21,-32.46 C-156.35,-37.97 -153.52,-44.18 -153.1,-52.91 C-151.73,-81.48 -206.12,-66.88 -205.37,-59.88z"/>
-                    <path fill="rgb(34,147,193)" d="M-165.48,-9.16 C-159.62,-12.56 -155.71,-17.43 -156.46,-23.54 C-156.93,-27.42 -156.13,-29.22 -156.21,-32.46 C-156.35,-37.97 -153.52,-44.18 -153.1,-52.91 C-152.68,-61.59 -157.41,-66.29 -164.18,-68.42 C-166.58,-69.18 -172.0,-20.64 -165.48,-9.16z"/>
-                    <path stroke-linecap="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="7" d="M-156.46,-23.54 C-156.93,-27.42 -156.13,-29.22 -156.21,-32.46 C-156.35,-37.97 -153.52,-44.18 -153.1,-52.91 C-151.73,-81.48 -206.12,-66.88 -205.37,-59.88 C-204.62,-52.88 -202.92,-45.7 -202.9,-42.3 C-202.87,-33.87 -203.24,-24.59 -203.13,-19.9 C-203.91,-10.41 -203.45,-15.75 -203.72,-12.5"/>
-                  </g>
-                </g>
-                <!-- Legs -->
-                <g transform="matrix(0.87,-0.19,0.19,0.87,176.49,232.73)">
-                  <g>
-                    <path fill="rgb(61,169,214)" d="M-163.5,129.25 C-173.75,125.75 -192.01,133.19 -200.75,139.25 C-216.25,150 -215,211 -207,216.5 C-199,222 -172.5,213.23 -159.72,208.81 C-144.72,203.61 -135.28,177.5 -136.5,158 C-136.88,152.0 -153.25,132.75 -163.5,129.25z"/>
-                  </g>
-                </g>
-              </g>
-            </svg>
+          <div class="float-anim flex items-center justify-center" style="width:100%;max-width:420px;">
+            <!-- Outer glow ring -->
+            <div style="
+              position:relative;
+              width:380px; height:380px;
+              border-radius:50%;
+              background: conic-gradient(from 0deg, #9945FF, #14F195, #3da9d6, #9945FF);
+              padding: 5px;
+              box-shadow: 0 0 60px rgba(153,69,255,0.5), 0 0 120px rgba(20,241,149,0.3);
+              animation: spin-slow 8s linear infinite;
+            ">
+              <!-- Inner ring -->
+              <div style="
+                width:100%; height:100%;
+                border-radius:50%;
+                background: linear-gradient(135deg, rgba(61,169,214,0.3), rgba(153,69,255,0.2));
+                padding: 8px;
+              ">
+                <!-- Image circle -->
+                <img
+                  src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg"
+                  alt="Based Brett Logo"
+                  style="
+                    width:100%; height:100%;
+                    border-radius:50%;
+                    object-fit:cover;
+                    display:block;
+                    border: 3px solid rgba(61,169,214,0.6);
+                    box-shadow: inset 0 0 30px rgba(61,169,214,0.3);
+                  "
+                >
+              </div>
+            </div>
           </div>
         </div>
 
@@ -294,20 +246,20 @@
           <div class="flex items-center gap-x-3 flex-wrap gap-y-2">
             <button onclick="copyCA()" class="px-4 py-3 border border-lyllw/70 rounded-full bg-lyllw/10 flex gap-x-3 items-center font-semibold hover:bg-lyllw/20 transition-all text-sm lg:text-base">
               <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
-              <span id="ca-display">xxxxxxxxxxxxxxx</span>
+              <span id="ca-display">ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX</span>
             </button>
             <span id="ca-copied" class="text-green-400 text-sm hidden">✓ Copied!</span>
           </div>
 
           <!-- Buy buttons -->
           <div class="flex flex-col md:flex-row gap-x-4 gap-y-4 mt-6">
-            <a href="https://raydium.io/swap/?outputCurrency=xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer">
+            <a href="https://raydium.io/swap/?outputCurrency=ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer">
               <button class="btn-primary text-xl font-primary tracking-wider">
                 Buy on Raydium
                 <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"><path d="M11 19H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"></path><path d="M13 5h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5"></path><circle cx="12" cy="12" r="3"></circle><path d="m18 22-3-3 3-3"></path><path d="m6 2 3 3-3 3"></path></svg>
               </button>
             </a>
-            <a href="https://jup.ag/swap/SOL-xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer">
+            <a href="https://jup.ag/swap/SOL-ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer">
               <button class="btn-outline text-xl font-primary tracking-wider">Jupiter Chart</button>
             </a>
           </div>
@@ -357,91 +309,13 @@
       </div>
 
       <div class="glass-card flex flex-col lg:flex-row gap-y-8 items-center justify-center w-full p-12 rounded-2xl">
-        <!-- Brett about SVG animation -->
+        <!-- Brett about image -->
         <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
-          <div class="float-anim" style="width:100%;max-width:320px;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width:100%;filter:drop-shadow(0 0 20px rgba(61,169,214,0.5))">
-              <!-- Simplified Brett sitting pose -->
-              <g transform="matrix(1.22,0,0,1.22,-53.39,-56.08)">
-                <!-- Body -->
-                <g transform="matrix(1,0,0,1,247.66,154.16)">
-                  <path fill="rgb(61,169,214)" d="M-36.05,-69.23 C-17.02,-73.69 55.74,-75.06 67.38,-67.75 C78.52,-60.78 90.02,-45.0 91.36,-27.66 C92.69,-10.33 91.33,22.83 84.33,34.83 C77.33,46.83 61.88,58.0 50.88,61.34 C39.88,64.67 -33.96,73.69 -61.66,53.17 C-90.22,31.82 -84.34,-37.68 -74.64,-49.65 C-59.61,-69.1 -36.05,-69.23 -36.05,-69.23z"/>
-                  <path fill="rgb(10,126,175)" fill-opacity="0.7" d="M50.52,-71.23 C55.83,-70.94 64.46,-69.33 67.38,-67.75 C78.63,-60.8 90.02,-45.0 91.36,-27.66 C92.69,-10.33 91.33,22.83 84.33,34.83 C77.33,46.83 61.88,58.0 50.88,61.34 C56.52,55.14 77.68,38.25 79.4,10.23 C84.91,-13.98 79.97,-39.58 69.04,-49.07 C67.07,-61.31 50.52,-71.23 50.52,-71.23z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(22,105,140)" stroke-width="6" d="M-36.05,-69.23 C-17.02,-73.69 55.74,-75.06 67.38,-67.75 C78.52,-60.78 90.02,-45.0 91.36,-27.66 C92.69,-10.33 91.33,22.83 84.33,34.83 C77.33,46.83 61.88,58.0 50.88,61.34 C39.88,64.67 -33.96,73.69 -61.66,53.17 C-90.22,31.82 -84.25,-37.84 -74.64,-49.65 C-59.62,-69.1 -36.05,-69.23 -36.05,-69.23z"/>
-                </g>
-                <!-- Mouth pink -->
-                <g transform="matrix(1,0,0,1,259.91,180.27)">
-                  <path fill="rgb(252,108,182)" d="M69.3,-17.34 C81.02,-19.76 80.47,-7.33 76.45,-5.15 C80.33,-2.39 77.0,7.27 67.6,10.55 C50.52,17.79 -12.81,28.02 -61.15,6.22 C-83.56,-3.79 -70.07,-25.7 -52.11,-17.31 C-31.83,-7.85 -3.68,-7.75 10.49,-7.73 C42.17,-7.66 56.79,-13.41 69.3,-17.34z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(172,26,101)" stroke-width="6" d="M69.3,-17.34 C81.02,-19.76 80.47,-7.33 76.45,-5.15 C80.33,-2.39 77.0,7.27 67.6,10.55 C50.52,17.79 -12.81,28.02 -61.15,6.22 C-83.56,-3.79 -70.07,-25.7 -52.11,-17.31 C-31.83,-7.85 -3.68,-7.75 10.49,-7.73 C42.17,-7.66 56.79,-13.41 69.3,-17.34z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(172,26,101)" stroke-width="6" transform="matrix(1,0,0,1,9.93,4.48)" d="M-69.99,-10.48 C-34.6,3.26 21.38,8.52 63.44,-9.08"/>
-                </g>
-                <!-- Eyes white left -->
-                <g transform="matrix(1,0,0,1,228.54,127.92)">
-                  <path fill="rgb(255,255,255)" d="M-30.54,-1.42 C-31.63,9.08 -20.86,15.97 0.13,16.75 C22.43,17.58 30.63,11.25 31.13,1.25 C31.63,-8.75 11.96,-17.25 -1.54,-17.42 C-15.04,-17.58 -29.35,-12.93 -30.54,-1.42z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M-30.54,-1.42 C-31.63,9.08 -20.86,15.97 0.13,16.75 C22.43,17.58 30.63,11.25 31.13,1.25 C31.63,-8.75 11.96,-17.25 -1.54,-17.42 C-15.04,-17.58 -29.35,-12.93 -30.54,-1.42z"/>
-                  <path fill="rgb(61,169,214)" d="M-30.54,-1.42 C-25.26,-28.3 29.96,-17.88 31.13,1.25 C31.63,-8.75 11.96,-17.25 -1.54,-17.42 C-15.04,-17.58 -29.35,-12.93 -30.54,-1.42z"/>
-                </g>
-                <!-- Pupil left -->
-                <g transform="matrix(1,0,0,1,227.32,128.63)">
-                  <path fill="rgb(0,0,0)" d="M10.38,0.22 C10.38,5.95 5.73,9.63 0,9.63 C-5.73,9.63 -10.38,5.95 -10.38,0.22 C-10.38,-5.51 -5.73,-9.63 0,-9.63 C5.73,-9.63 10.38,-5.51 10.38,0.22z"/>
-                </g>
-                <g transform="matrix(1,0,0,1,230.97,128.29)">
-                  <path fill="rgb(255,255,255)" d="M4.17,0.09 C4.17,2.51 2.3,4.06 0,4.06 C-2.31,4.06 -4.17,2.51 -4.17,0.09 C-4.17,-2.33 -2.31,-4.06 0,-4.06 C2.3,-4.06 4.17,-2.33 4.17,0.09z"/>
-                </g>
-                <!-- Eyes white right -->
-                <g transform="matrix(1,0,0,1,315.76,131.69)">
-                  <path fill="rgb(255,255,255)" d="M-31.0,-0.01 C-30.78,8.18 -22.44,15.69 -3.17,16.62 C19.82,17.74 33.1,13.2 33.07,1.97 C33.03,-14.72 9.6,-17.44 -3.9,-17.61 C-17.4,-17.77 -31.33,-13.01 -31.0,-0.01z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M-31.0,-0.01 C-30.78,8.18 -22.44,15.69 -3.17,16.62 C19.82,17.74 33.1,13.2 33.07,1.97 C33.03,-14.72 9.6,-17.44 -3.9,-17.61 C-17.4,-17.77 -31.33,-13.01 -31.0,-0.01z"/>
-                  <path fill="rgb(61,169,214)" d="M-32.13,-0.05 C-32.27,-8.65 -21.7,-18.81 -2.43,-17.87 C20.57,-16.75 32.52,-10.54 33.07,1.97 C33.03,-14.72 10.95,-17.46 -2.55,-17.63 C-16.05,-17.8 -32.47,-13.05 -32.13,-0.05z"/>
-                </g>
-                <!-- Pupil right -->
-                <g transform="matrix(1,0,0,1,315.91,131.3)">
-                  <path fill="rgb(0,0,0)" d="M10.38,0.22 C10.38,5.95 5.73,9.63 0,9.63 C-5.73,9.63 -10.38,5.95 -10.38,0.22 C-10.38,-5.51 -5.73,-9.63 0,-9.63 C5.73,-9.63 10.38,-5.51 10.38,0.22z"/>
-                </g>
-                <g transform="matrix(1,0,0,1,319.56,130.96)">
-                  <path fill="rgb(255,255,255)" d="M4.17,0.09 C4.17,2.51 2.3,4.06 0,4.06 C-2.31,4.06 -4.17,2.51 -4.17,0.09 C-4.17,-2.33 -2.31,-4.06 0,-4.06 C2.3,-4.06 4.17,-2.33 4.17,0.09z"/>
-                </g>
-                <!-- Nose ear left -->
-                <g transform="matrix(1,0,0,1,185.93,79.19)">
-                  <path fill="rgb(61,169,214)" d="M26.3,10.87 C25.73,-0.43 22.89,-26.07 7.09,-29.81 C-5.6,-32.82 -16.29,-29.34 -21.67,-19.31 C-27.39,-8.5 -26.37,16.43 -14.47,29.66z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M26.3,10.87 C25.73,-0.43 22.89,-26.07 7.09,-29.81 C-5.6,-32.82 -16.29,-29.34 -21.67,-19.31 C-27.39,-8.5 -26.37,16.43 -14.47,29.66z"/>
-                  <path fill="rgb(252,107,182)" d="M10.03,7.16 C8.49,-2.27 7.25,-19.35 -2.1,-21.16 C-7.21,-22.45 -13.98,-19.01 -15.15,-12.1 C-16.66,-3.96 -15.6,12.72 -7.77,23.39z"/>
-                  <path fill="rgb(212,67,142)" d="M-4.72,11.23 C-7.72,2.73 -11.48,-15.32 -2.1,-21.16 C-7.21,-22.45 -13.98,-19.01 -15.15,-12.1 C-16.66,-3.96 -15.6,12.72 -7.77,23.39z"/>
-                </g>
-                <!-- Nose ear right -->
-                <g transform="matrix(1,0,0,1,329.78,130.72)">
-                  <path fill="rgb(61,169,214)" d="M-7.59,-26.1 C1.73,-24.75 13.49,-21.55 12.85,-9.7 C12.06,3.98 15.31,7.36 13.47,14.23 C11.62,21.11 7.37,24.84 0.93,24.7z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M-7.59,-26.1 C1.73,-24.75 13.49,-21.55 12.85,-9.7 C12.06,3.98 15.31,7.36 13.47,14.23 C11.62,21.11 7.37,24.84 0.93,24.7z"/>
-                </g>
-                <!-- Legs left -->
-                <g transform="matrix(1.2,-0.07,0.08,1.19,-56.14,-8.25)">
-                  <g transform="matrix(1,0,0,1,161.75,400.17)">
-                    <path fill="rgb(61,169,214)" d="M-56.29,9.41 C-50.24,-6.82 -36.98,-11.9 -26.18,-19.92 C-18.89,-24.99 15.37,-56.9 24.89,-63.77 C51.72,-55.94 47.84,-26.05 47.84,-26.05 C4.68,8.45 -9.65,56.49 -49.44,52.56z"/>
-                    <path fill="rgb(36,148,194)" d="M-28.39,42.36 C-14.18,37.92 2.48,5.37 32.59,-17.7 C37.08,-20.26 39.16,-17.82 39.16,-17.82 C-3.26,17.13 -9.65,56.49 -49.44,52.56z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(24,105,141)" stroke-width="6" d="M-56.29,9.41 C-50.24,-6.82 -36.98,-11.9 -26.18,-19.92 C-18.89,-24.99 15.37,-56.9 24.89,-63.77 C51.72,-55.94 47.84,-26.05 47.84,-26.05 C4.68,8.45 -9.65,56.49 -49.44,52.56z"/>
-                  </g>
-                </g>
-                <!-- Leg right -->
-                <g transform="matrix(1.22,-0.07,0.08,1.19,-90.41,-8.25)">
-                  <g transform="matrix(1,0,0,1,358.28,335.88)">
-                    <path fill="rgb(61,169,214)" d="M-43.96,-21.31 C-31.46,-14.59 -16.79,13.14 -5.02,33.26 C12.86,63.81 29.42,71.23 42.89,72.4 C46.08,72.68 53.4,76.46 60.44,73.04 C62.91,71.84 62.01,66.15 61.51,58.65 C61.01,51.15 63.1,32.59 46.54,10.87 C28.54,-12.75 -5.81,-38.14 -25.61,-53.34 C-40.96,-53.34 -51.46,-36.7 -43.96,-21.31z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(24,105,141)" stroke-width="6" d="M61.83,62.85 C61.72,61.53 61.61,60.13 61.51,58.65 C61.01,51.15 63.1,32.59 46.54,10.87 C28.54,-12.75 -5.81,-38.14 -25.61,-53.34 C-40.96,-53.34 -51.46,-36.7 -43.96,-21.31 C-43.96,-21.31 -43.96,-21.31 -43.96,-21.31 C-31.46,-14.59 -16.79,13.14 -5.02,33.26 C12.86,63.81 29.42,71.23 42.89,72.4 C46.08,72.68 53.4,76.46 60.44,73.04 C62.42,72.08 62.23,68.22 61.83,62.85"/>
-                  </g>
-                </g>
-                <!-- Tail left arm -->
-                <g transform="matrix(1.2,-0.22,0.22,1.2,-129.54,-34.71)">
-                  <g>
-                    <path fill="rgb(61,169,214)" d="M198.77,332.72 C184.43,328.11 171.69,375.8 200.62,380.92 C220.62,384.47 222.36,340.31 198.77,332.72z"/>
-                  </g>
-                  <g transform="matrix(1,0,0,1,227.57,337.7)">
-                    <path fill="rgb(61,169,214)" d="M-40.49,-1.43 C-33.72,-7.64 -25.86,-10.03 -23.69,-12.69 C-21.53,-15.36 -17.19,-24.57 -18.07,-31.94 C-18.62,-36.58 -27.36,-50.49 -25.07,-53.37 C-22.72,-56.31 -11.24,-54.36 -7.24,-44.69 C-3.24,-35.03 -4.22,-24.53 -3.94,-19.82 C-3.24,-7.53 12.47,-4.94 19.0,-2.6 C23.06,1.93 27.39,6.26 33.76,13.31 C38.24,18.25 33.76,24.06 31.18,23.39 C33.18,25.47 34.35,34.39 27.6,33.39 C30.66,36.08 30.68,43.97 24.93,44.56 C26.81,47.43 27.49,53.62 22.18,55.06 C16.74,56.24 10.64,56.31 5.26,55.64 C3.13,55.68 0.1,54.56 -3.11,53.14 C-9.52,54.56 -17.67,51.26 -22.57,46.31 C-24.8,44.05 -28.08,44.1 -29.18,45.06"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(24,105,141)" stroke-width="6" d="M-40.49,-1.43 C-33.72,-7.64 -25.86,-10.03 -23.69,-12.69 C-21.53,-15.36 -17.19,-24.57 -18.07,-31.94 C-18.62,-36.58 -27.36,-50.49 -25.07,-53.37 C-22.72,-56.31 -11.24,-54.36 -7.24,-44.69 C-3.24,-35.03 -4.22,-24.53 -3.94,-19.82 C-3.24,-7.53 12.47,-4.94 19.0,-2.6 C23.06,1.93 27.39,6.26 33.76,13.31 C38.24,18.25 33.76,24.06 31.18,23.39 C33.18,25.47 34.35,34.39 27.6,33.39 C30.66,36.08 30.68,43.97 24.93,44.56 C26.81,47.43 27.49,53.62 22.18,55.06 C16.74,56.24 10.64,56.31 5.26,55.64 C3.13,55.68 0.1,54.56 -3.11,53.14 C-9.52,54.56 -17.67,51.26 -22.57,46.31 C-24.8,44.05 -28.08,44.1 -29.18,45.06"/>
-                  </g>
-                </g>
-              </g>
-            </svg>
+          <div class="float-anim" style="width:100%;max-width:360px;">
+            <img src="https://blog.btcc.com/wp-content/uploads/2024/04/GJ8CHjrWsAA_wp9.jpg" alt="Brett character" style="width:100%;border-radius:24px;filter:drop-shadow(0 0 30px rgba(61,169,214,0.5));">
           </div>
         </div>
+
 
         <!-- About text -->
         <div class="flex flex-col justify-center gap-y-4 w-full lg:w-1/2 text-center lg:text-left">
@@ -572,13 +446,13 @@
         </div>
 
         <div class="flex gap-x-4">
-          <a href="https://raydium.io/swap/?outputCurrency=xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer">
+          <a href="https://raydium.io/swap/?outputCurrency=ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer">
             <button class="btn-primary text-xl font-primary px-8 py-4">
               Buy Now
               <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
             </button>
           </a>
-          <a href="https://dexscreener.com/solana/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer">
+          <a href="https://dexscreener.com/solana/ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer">
             <button class="btn-outline text-xl font-primary px-8 py-4">See Charts</button>
           </a>
         </div>
@@ -631,6 +505,9 @@
           <a href="https://t.me/basedbrett" target="_blank" rel="noopener noreferrer">
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="hover:text-lyllw cursor-pointer transition-all ease-in-out duration-300" height="1em" width="1em"><path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"></path></svg>
           </a>
+          <a href="https://x.com/basedbrettpf" target="_blank" rel="noopener noreferrer">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="hover:text-lyllw cursor-pointer transition-all ease-in-out duration-300" height="1em" width="1em"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+          </a>
         </div>
       </div>
     </div>
@@ -666,7 +543,7 @@
   <script>
     // CA copy
     function copyCA() {
-      const ca = 'xxxxxxxxxxxxxxx';
+      const ca = 'ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX';
       navigator.clipboard.writeText(ca).then(() => {
         const el = document.getElementById('ca-copied');
         el.classList.remove('hidden');
