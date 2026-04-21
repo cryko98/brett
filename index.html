@@ -4,357 +4,598 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BASED BRETT — $BRETT on Solana</title>
-  <meta name="title" content="BRETT - No 1 Meme on Solana">
   <meta name="description" content="Introducing BRETT, The No 1 MEME COIN on Solana and a Friend of PEPE.">
-  <meta name="keywords" content="BRETT, BRETT Coin, Solana MEME, Brett Solana, PEPE, Meme Coin, Pump.fun, Solana Network, Matt Furie">
-  <meta name="robots" content="index, follow">
   <meta property="og:title" content="BASED BRETT">
   <meta property="og:description" content="Introducing BRETT, The No 1 MEME COIN on Solana and a Friend of PEPE.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BASED BRETT">
-  <meta name="twitter:description" content="Introducing BRETT, The No 1 MEME COIN on Solana and a Friend of PEPE.">
   <meta name="twitter:image" content="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg">
   <link rel="icon" type="image/png" href="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg">
   <link rel="apple-touch-icon" href="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { yllw: '#f5d800', lyllw: '#3da9d6' },
-          fontFamily: { primary: ['Bangers', 'cursive'] }
-        }
-      }
-    }
-  </script>
+  <!-- Boogaloo: matches the bold condensed cartoon font on the original -->
+  <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    /* ── Fonts ── */
-    .font-primary { font-family: 'Bangers', cursive; letter-spacing: 0.05em; }
+    /* ─── CSS RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
 
-    /* ── Text strokes ── */
-    .text-stroke    { -webkit-text-stroke: 2px white; color: transparent; }
-    .text-stroke-sm { -webkit-text-stroke: 1px white; color: transparent; }
-
-    /* ── Background ── */
-    body {
-      background-image: url('https://i.imgur.com/LpTKIs7.png');
-      background-size: cover;
-      background-position: center top;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+    /* ─── COLOUR PALETTE (from screenshot) ─── */
+    :root {
+      --cyan:      #1CD6F0;   /* main brand cyan / button bg */
+      --cyan-dark: #0AAEC8;   /* hover state */
+      --cyan-glow: rgba(28, 214, 240, 0.35);
+      --white:     #FFFFFF;
+      --overlay:   rgba(4, 12, 28, 0.68);
+      --glass-bg:  rgba(4, 18, 40, 0.55);
+      --glass-border: rgba(28, 214, 240, 0.3);
+      --text-dim:  rgba(255,255,255,0.70);
     }
+
+    /* ─── FONT ─── */
+    .font-display { font-family: 'Boogaloo', cursive; }
+    .font-body    { font-family: 'Inter', sans-serif; }
+
+    /* ─── BACKGROUND ─── */
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--white);
+      overflow-x: hidden;
+      background: url('https://i.imgur.com/LpTKIs7.png') center top / cover fixed;
+      min-height: 100vh;
+    }
+    /* dark overlay so text is readable over the busy illustration */
     body::before {
       content: '';
-      position: fixed;
-      inset: 0;
-      background: rgba(5, 14, 34, 0.76);
+      position: fixed; inset: 0; z-index: 0;
+      background: var(--overlay);
       pointer-events: none;
-      z-index: 0;
     }
-    /* All direct body children sit above the overlay */
     body > * { position: relative; z-index: 1; }
 
-    /* ── Glass card ── */
-    .glass-card {
-      background: linear-gradient(135deg, rgba(61,169,214,0.13) 0%, rgba(245,216,0,0.07) 100%);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(61,169,214,0.35);
-    }
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #040c1c; }
+    ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 4px; }
 
-    /* ── Buttons ── */
-    .btn-pump {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.75rem; border-radius: 9999px;
-      font-family: 'Bangers', cursive; font-size: 1.25rem; letter-spacing: 0.05em;
-      color: #fff; text-decoration: none; cursor: pointer;
-      background: linear-gradient(135deg, #ff6b35 0%, #ff3e8e 100%);
-      border: 1px solid rgba(255,107,53,0.6);
-      box-shadow: 0 4px 22px rgba(255,62,142,0.45);
-      transition: transform 0.2s, filter 0.2s;
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      font-family: 'Boogaloo', cursive;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      padding: 0.55rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.18s, filter 0.18s, background 0.18s;
+      text-decoration: none;
+      border: none;
+      white-space: nowrap;
     }
-    .btn-pump:hover { transform: scale(1.05); filter: brightness(1.12); }
+    .btn:hover { transform: scale(1.06); filter: brightness(1.12); }
 
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.75rem; border-radius: 9999px;
-      font-family: 'Bangers', cursive; font-size: 1.25rem; letter-spacing: 0.05em;
-      color: #000; text-decoration: none; cursor: pointer;
-      background: linear-gradient(135deg, #f5d800 0%, #3da9d6 100%);
-      border: 1px solid rgba(245,216,0,0.7);
-      transition: transform 0.2s, filter 0.2s;
+    /* solid cyan — main CTA (matches original "Buy on Kyberswap" style) */
+    .btn-cyan {
+      background: var(--cyan);
+      color: #030e1e;
     }
-    .btn-primary:hover { transform: scale(1.05); filter: brightness(1.1); }
-
+    /* cyan outline — secondary */
     .btn-outline {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.75rem; border-radius: 9999px;
-      font-family: 'Bangers', cursive; font-size: 1.25rem; letter-spacing: 0.05em;
-      color: white; text-decoration: none; cursor: pointer;
-      background: rgba(61,169,214,0.1);
-      border: 1px solid rgba(61,169,214,0.65);
-      transition: transform 0.2s, background 0.2s;
+      background: transparent;
+      color: var(--cyan);
+      border: 2px solid var(--cyan);
     }
-    .btn-outline:hover { transform: scale(1.05); background: rgba(61,169,214,0.24); }
+    .btn-outline:hover { background: rgba(28,214,240,0.12); }
 
-    /* ── Animations ── */
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50%      { transform: translateY(-16px); }
-    }
-    @keyframes pulse-glow {
-      0%,100% { opacity: 0.5; transform: scale(1); }
-      50%      { opacity: 0.82; transform: scale(1.05); }
-    }
-    @keyframes spin-slow {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
-    @keyframes fadeUp   { from { opacity:0; transform:translateY(28px);  } to { opacity:1; transform:none; } }
-    @keyframes fadeLeft { from { opacity:0; transform:translateX(-46px); } to { opacity:1; transform:none; } }
-    @keyframes fadeRight{ from { opacity:0; transform:translateX(46px);  } to { opacity:1; transform:none; } }
-
-    .float-anim    { animation: float 4s ease-in-out infinite; }
-    .pulse-anim    { animation: pulse-glow 3s ease-in-out infinite; }
-    .fade-in-up    { animation: fadeUp    0.8s ease both; }
-    .fade-in-left  { animation: fadeLeft  0.8s ease both; }
-    .fade-in-right { animation: fadeRight 0.8s ease both; }
-
-    /* ── Glow orbs ── */
-    .glow-orb {
-      position: absolute; border-radius: 50%;
-      width: 42rem; height: 42rem;
-      filter: blur(80px); pointer-events: none;
+    /* ─── GLASS CARD ─── */
+    .card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(14px);
+      border-radius: 16px;
     }
 
-    /* ── DexScreener embed ── */
-    .dex-wrap { position: relative; width: 100%; padding-bottom: 56.25%; min-height: 400px; }
-    .dex-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 16px; }
+    /* ─── NAVBAR ─── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(3, 10, 24, 0.72);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(28,214,240,0.18);
+    }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.9rem 1.5rem;
+      gap: 1rem;
+    }
+    .nav-logo { width: 42px; height: 42px; border-radius: 50%; object-fit: cover;
+                box-shadow: 0 0 14px var(--cyan-glow); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Boogaloo', cursive;
+      font-size: 1.1rem; letter-spacing: 0.08em;
+      color: var(--white); text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+    @media (max-width: 860px) { .nav-links { display: none; } }
 
-    /* ── Misc ── */
-    html { scroll-behavior: smooth; }
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #0a1628; }
-    ::-webkit-scrollbar-thumb { background: rgba(61,169,214,0.5); border-radius: 3px; }
+    /* ─── HERO ─── */
+    .hero {
+      min-height: calc(100vh - 62px);
+      display: flex; align-items: center;
+      padding: 4rem 1.5rem 5rem;
+      position: relative; overflow: hidden;
+    }
+    /* soft glowing orbs */
+    .hero::before, .hero::after {
+      content: ''; position: absolute; border-radius: 50%;
+      pointer-events: none; filter: blur(90px);
+    }
+    .hero::before {
+      width: 520px; height: 520px;
+      background: rgba(28,214,240,0.22);
+      top: -140px; right: -120px;
+      animation: pulse 5s ease-in-out infinite;
+    }
+    .hero::after {
+      width: 420px; height: 420px;
+      background: rgba(28,214,240,0.12);
+      bottom: -100px; left: -100px;
+      animation: pulse 6s ease-in-out infinite 1.5s;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 0.6; transform: scale(1); }
+      50%      { opacity: 1;   transform: scale(1.08); }
+    }
+
+    .hero-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; gap: 4rem;
+      flex-wrap: wrap;
+      position: relative; z-index: 2;
+    }
+
+    /* ── circular logo ── */
+    .hero-logo-wrap {
+      flex: 0 0 auto;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
+
+    .logo-ring {
+      width: 300px; height: 300px; border-radius: 50%;
+      padding: 5px;
+      background: conic-gradient(#9945FF,#1CD6F0,#14F195,#1CD6F0,#9945FF);
+      animation: spin 10s linear infinite;
+      box-shadow: 0 0 60px rgba(28,214,240,0.45), 0 0 120px rgba(153,69,255,0.2);
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .logo-inner {
+      width: 100%; height: 100%; border-radius: 50%;
+      background: #040c1c; padding: 8px;
+    }
+    .logo-inner img {
+      width: 100%; height: 100%; border-radius: 50%;
+      object-fit: cover; display: block;
+      border: 2px solid rgba(28,214,240,0.4);
+    }
+
+    /* ── hero text ── */
+    .hero-text { flex: 1; min-width: 280px; }
+
+    .hero-eyebrow {
+      font-family: 'Boogaloo', cursive;
+      font-size: 1rem; letter-spacing: 0.5em;
+      color: var(--cyan); margin-bottom: 0.4rem;
+      text-transform: uppercase;
+    }
+
+    /* BRETT title — exact match: cyan bg block with white text */
+    .hero-title {
+      font-family: 'Boogaloo', cursive;
+      font-size: clamp(5.5rem, 12vw, 10rem);
+      line-height: 0.9;
+      color: var(--white);
+      /* cyan highlight block like in the screenshot */
+      background: var(--cyan);
+      display: inline-block;
+      padding: 0.05em 0.18em;
+      border-radius: 4px;
+      text-shadow: none;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-sub {
+      font-family: 'Boogaloo', cursive;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      color: var(--white);
+      letter-spacing: 0.06em;
+      line-height: 1.25;
+      margin-bottom: 0.6rem;
+    }
+    /* "SOLANA" — solid cyan so always visible */
+    .hero-sub .sol { color: var(--cyan); }
+
+    .hero-desc {
+      font-family: 'Boogaloo', cursive;
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      max-width: 620px;
+      line-height: 1.5;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-divider {
+      width: 100%; height: 1px;
+      background: rgba(255,255,255,0.2);
+      margin: 1.2rem 0;
+    }
+
+    /* CA copy box */
+    .ca-box {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: rgba(28,214,240,0.08);
+      border: 1px solid rgba(28,214,240,0.4);
+      border-radius: 999px;
+      padding: 0.5rem 1rem;
+      font-family: monospace; font-size: 0.9rem;
+      color: var(--white);
+      cursor: pointer;
+      transition: background 0.15s;
+      max-width: 100%;
+    }
+    .ca-box:hover { background: rgba(28,214,240,0.16); }
+    .ca-icon { color: var(--cyan); flex-shrink: 0; }
+    .ca-copied { color: #14F195; font-family: 'Inter',sans-serif; font-size: 0.85rem; display: none; }
+
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.1rem; }
+
+    /* ─── SECTION WRAPPER ─── */
+    .section { padding: 5rem 1.5rem; }
+    .section-inner { max-width: 1280px; margin: 0 auto; }
+
+    .section-title {
+      font-family: 'Boogaloo', cursive;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      color: var(--white);
+      letter-spacing: 0.06em;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      /* cyan underline accent */
+      text-decoration: underline;
+      text-decoration-color: var(--cyan);
+      text-underline-offset: 8px;
+    }
+
+    /* ─── CHART ─── */
+    .dex-wrap {
+      position: relative; width: 100%;
+      padding-bottom: 56.25%; min-height: 420px;
+    }
+    .dex-wrap iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      border: 0; border-radius: 12px;
+    }
+
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: flex; gap: 3rem; align-items: center;
+      flex-wrap: wrap;
+    }
+    .about-img { flex: 0 0 auto; max-width: 340px; width: 100%; }
+    .about-img img {
+      width: 100%; border-radius: 18px;
+      filter: drop-shadow(0 0 28px rgba(28,214,240,0.45));
+      animation: float 4.5s ease-in-out infinite;
+    }
+    .about-text { flex: 1; min-width: 260px; }
+    .about-text h2 {
+      font-family: 'Boogaloo', cursive;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--white);
+      /* cyan stroke like original */
+      -webkit-text-stroke: 1px var(--cyan);
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+    }
+    .about-text p {
+      font-size: 1.1rem; line-height: 1.75;
+      color: var(--text-dim);
+      margin-bottom: 0.9rem;
+    }
+    .about-text p strong { color: var(--white); }
+
+    /* ─── TOKENOMICS ─── */
+    .toko-inner { display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+
+    /* donut chart */
+    .donut-wrap { flex-shrink: 0; }
+
+    .toko-stats { display: flex; flex-direction: column; gap: 1rem; }
+    .toko-row {
+      display: flex; align-items: center; gap: 0.8rem;
+      font-family: 'Boogaloo', cursive;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+    .dot { width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; }
+
+    .toko-badges {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      justify-content: center; margin-top: 2.5rem;
+    }
+    .badge {
+      font-family: 'Boogaloo', cursive;
+      font-size: 1.2rem; letter-spacing: 0.05em;
+      padding: 0.7rem 1.6rem;
+      border-radius: 10px;
+      background: rgba(28,214,240,0.12);
+      border: 1px solid rgba(28,214,240,0.45);
+      color: var(--white);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .badge:hover { background: rgba(28,214,240,0.24); transform: scale(1.04); }
+
+    /* ─── HOW TO BUY ─── */
+    .steps { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .step {
+      flex: 1; min-width: 220px;
+      padding: 2rem; text-align: center;
+    }
+    .step-num {
+      font-family: 'Boogaloo', cursive;
+      font-size: 3.5rem; color: var(--cyan);
+      line-height: 1; margin-bottom: 0.4rem;
+    }
+    .step h3 {
+      font-family: 'Boogaloo', cursive;
+      font-size: 1.6rem; letter-spacing: 0.05em;
+      color: var(--white); margin-bottom: 0.6rem;
+    }
+    .step p { font-size: 1rem; line-height: 1.65; color: var(--text-dim); }
+    .step p strong { color: var(--white); }
+
+    /* ─── UTILITIES ─── */
+    .util-grid { display: flex; flex-direction: column; gap: 1.2rem; }
+    .util-card { padding: 2rem; }
+    .util-card h3 {
+      font-family: 'Boogaloo', cursive;
+      font-size: 1.8rem; letter-spacing: 0.04em;
+      color: var(--cyan); margin-bottom: 0.6rem;
+    }
+    .util-card p { font-size: 1rem; line-height: 1.7; color: var(--text-dim); }
+
+    /* ─── CONTACT ─── */
+    .contact-inner { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    .contact-email {
+      font-family: 'Boogaloo', cursive;
+      font-size: clamp(1.6rem, 4vw, 3rem);
+      color: var(--white);
+      text-decoration: underline;
+      text-decoration-color: var(--cyan);
+      text-underline-offset: 6px;
+      transition: color 0.15s;
+    }
+    .contact-email:hover { color: var(--cyan); }
+    .social-icon {
+      color: var(--white); font-size: 3.5rem;
+      transition: color 0.15s, transform 0.15s;
+    }
+    .social-icon:hover { color: var(--cyan); transform: scale(1.12); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: rgba(2, 8, 20, 0.85);
+      border-top: 1px solid rgba(28,214,240,0.18);
+      padding: 3rem 1.5rem;
+    }
+    .footer-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 1rem;
+    }
+    .footer-brand {
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    }
+    .footer-brand img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover;
+                        box-shadow: 0 0 18px rgba(28,214,240,0.5); }
+    .footer-title {
+      font-family: 'Boogaloo', cursive;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      color: var(--white);
+      /* cyan text outline like original title style */
+      -webkit-text-stroke: 2px var(--cyan);
+      letter-spacing: 0.05em;
+    }
+    .footer-disclaimer {
+      font-size: 0.85rem; color: rgba(255,255,255,0.35);
+      max-width: 600px; text-align: center; line-height: 1.6;
+    }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.22); }
+
+    /* ─── FIXED CTA ─── */
+    .fixed-cta {
+      position: fixed; bottom: 22px; right: 22px; z-index: 999;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      .logo-ring { width: 220px; height: 220px; }
+      .hero { padding: 2rem 1rem 3rem; }
+      .hero-inner { gap: 2rem; }
+    }
   </style>
 </head>
-<body class="font-primary text-white w-full overflow-x-hidden min-h-screen">
+<body>
 
-  <!-- ──────────── Fixed CTA ──────────── -->
-  <a href="https://pump.fun/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer"
-     style="position:fixed;bottom:22px;right:22px;z-index:999;"
-     class="btn-pump" style="font-size:1.1rem;">
-    🚀 Buy on Pump.fun
-  </a>
+  <!-- ── FIXED BUY BUTTON ── -->
+  <div class="fixed-cta">
+    <a href="https://pump.fun/ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">
+      🚀 Buy on Pump.fun
+    </a>
+  </div>
 
-  <!-- ──────────── NAVBAR ──────────── -->
-  <nav style="position:sticky;top:0;z-index:100;backdrop-filter:blur(16px);background:rgba(5,14,34,0.7);border-bottom:1px solid rgba(61,169,214,0.2);">
-    <div class="flex justify-between items-center max-w-screen-xl mx-auto px-6 py-4">
-      <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="BRETT"
-           style="width:46px;height:46px;border-radius:50%;object-fit:cover;box-shadow:0 0 14px rgba(61,169,214,0.7);">
-      <div class="gap-x-8 items-center hidden lg:flex">
-        <a href="#about"     class="font-semibold text-white hover:text-yellow-300 transition-colors">ABOUT</a>
-        <a href="#tokenomics"class="font-semibold text-white hover:text-yellow-300 transition-colors">TOKENOMICS</a>
-        <a href="#chart"     class="font-semibold text-white hover:text-yellow-300 transition-colors">CHART</a>
-        <a href="#howtobuy"  class="font-semibold text-white hover:text-yellow-300 transition-colors">HOW TO BUY</a>
-        <a href="#contact"   class="font-semibold text-white hover:text-yellow-300 transition-colors">CONTACT</a>
-      </div>
-      <a href="https://pump.fun/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer" class="btn-pump" style="font-size:1rem;padding:0.6rem 1.4rem;">
-        🚀 Buy on Pump.fun
+  <!-- ════════════════════════════════ NAVBAR ════════════════════════════════ -->
+  <nav>
+    <div class="nav-inner">
+      <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="BRETT" class="nav-logo">
+      <ul class="nav-links">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#tokenomics">TOKENOMICS</a></li>
+        <li><a href="#chart">CHART</a></li>
+        <li><a href="#howtobuy">HOW TO BUY</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+      <a href="https://pump.fun/ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">
+        Buy on Pump.fun
       </a>
     </div>
   </nav>
 
-  <!-- ──────────── HERO ──────────── -->
-  <section style="position:relative;overflow:hidden;" class="bg-lyllw/20 pb-24 pt-10">
-    <div class="glow-orb" style="background:radial-gradient(circle,rgba(153,69,255,0.38) 0%,transparent 70%);top:-260px;right:-240px;animation:pulse-glow 5s ease-in-out infinite;"></div>
-    <div class="glow-orb" style="background:radial-gradient(circle,rgba(245,216,0,0.22) 0%,transparent 70%);bottom:-120px;left:-200px;animation:pulse-glow 6s ease-in-out infinite 1s;"></div>
+  <!-- ════════════════════════════════ HERO ════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
 
-    <div class="max-w-screen-xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10 md:gap-14" style="position:relative;z-index:2;">
-
-      <!-- Circular logo -->
-      <div class="w-full md:w-1/2 flex justify-center fade-in-up">
-        <div class="float-anim">
-          <div style="width:320px;height:320px;border-radius:50%;padding:5px;box-shadow:0 0 70px rgba(153,69,255,0.5),0 0 140px rgba(20,241,149,0.2);animation:spin-slow 10s linear infinite;">
-            <!-- rainbow border via SVG background trick -->
-            <div style="width:100%;height:100%;border-radius:50%;background:conic-gradient(#9945FF,#14F195,#3da9d6,#f5d800,#9945FF);padding:5px;">
-              <div style="width:100%;height:100%;border-radius:50%;background:rgba(8,16,36,0.5);padding:8px;">
-                <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="Based Brett Logo"
-                     style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:2px solid rgba(61,169,214,0.5);">
-              </div>
-            </div>
+      <!-- Circular spinning logo -->
+      <div class="hero-logo-wrap">
+        <div class="logo-ring">
+          <div class="logo-inner">
+            <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="Based Brett">
           </div>
         </div>
       </div>
 
-      <!-- Text -->
-      <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left fade-in-left">
-        <p class="font-primary tracking-[0.6rem] text-yellow-300 text-lg mb-1">INTRODUCING</p>
-        <h1 class="font-primary leading-none text-white"
-            style="font-size:clamp(5rem,11vw,9rem);-webkit-text-stroke:2px rgba(255,255,255,0.35);text-shadow:0 0 60px rgba(61,169,214,0.7);">
-          BRETT
-        </h1>
-
-        <!-- SOLANA — solid green so always visible -->
-        <p class="font-primary text-3xl tracking-widest mt-2">
-          PEPE's best friend on
-          <span style="color:#14F195;text-shadow:0 0 18px rgba(20,241,149,0.85);">SOLANA</span>
+      <!-- Text block -->
+      <div class="hero-text">
+        <p class="hero-eyebrow">INTRODUCING</p>
+        <div>
+          <span class="hero-title">BRETT</span>
+        </div>
+        <p class="hero-sub" style="margin-top:0.5rem;">
+          PEPE'S best friend on <span class="sol">SOLANA</span>
+        </p>
+        <p class="hero-desc">
+          one of crypto's most significant cultural icons and the mascot of Solana chain
         </p>
 
-        <p class="font-sans text-lg text-white/75 leading-relaxed mt-3 max-w-lg">
-          One of crypto's most significant cultural icons. The most based memecoin on the Solana chain.
-          Community-driven, zero taxes, contract renounced.
-        </p>
-
-        <div class="w-full h-px bg-white/20 my-5"></div>
+        <div class="hero-divider"></div>
 
         <!-- CA copy -->
-        <div class="flex items-center gap-3 flex-wrap mb-5">
-          <button onclick="copyCA()"
-            class="flex items-center gap-2 px-4 py-3 rounded-full font-sans font-semibold text-sm text-white hover:bg-white/10 transition-all"
-            style="border:1px solid rgba(61,169,214,0.55);background:rgba(255,255,255,0.04);">
-            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em">
-              <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
-              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
-            </svg>
-            <span id="ca-display" style="font-family:monospace;">xxxxxxxxxxxxxxx</span>
-          </button>
-          <span id="ca-copied" class="text-green-400 text-sm font-sans" style="display:none;">✓ Copied!</span>
-        </div>
+        <button class="ca-box" onclick="copyCA()" aria-label="Copy contract address">
+          <svg class="ca-icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="1em" width="1em">
+            <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+          </svg>
+          <span id="ca-display">ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX</span>
+        </button>
+        <span class="ca-copied" id="ca-copied">✓ Copied!</span>
 
-        <!-- Buttons -->
-        <div class="flex flex-wrap gap-3">
-          <a href="https://pump.fun/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer" class="btn-pump">
+        <!-- CTA buttons — cyan solid + cyan outline -->
+        <div class="hero-btns">
+          <a href="https://pump.fun/ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">
             🚀 Buy on Pump.fun
           </a>
-          <a href="https://raydium.io/swap/?outputCurrency=xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer" class="btn-outline">
+          <a href="https://raydium.io/swap/?outputCurrency=ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
             Raydium
+          </a>
+          <a href="#chart" class="btn btn-outline">
+            Chart 📈
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ──────────── DEXSCREENER CHART ──────────── -->
-  <section id="chart" class="py-20 px-4 bg-lyllw/20" style="position:relative;z-index:1;">
-    <div class="max-w-screen-xl mx-auto">
-      <div class="text-center mb-10">
-        <h2 class="font-primary text-white" style="font-size:clamp(3rem,7vw,6rem);text-shadow:0 0 30px rgba(61,169,214,0.5);">
-          LIVE CHART 📈
-        </h2>
-        <p class="font-sans text-white/55 mt-1">Powered by DexScreener</p>
-      </div>
-      <div class="glass-card rounded-2xl overflow-hidden p-1">
+  <!-- ════════════════════════════ DEXSCREENER ════════════════════════════ -->
+  <section class="section" id="chart" style="background:rgba(4,12,28,0.5);">
+    <div class="section-inner">
+      <h2 class="section-title">LIVE CHART 📈</h2>
+      <p style="text-align:center;color:var(--text-dim);font-size:0.95rem;margin-top:-1.5rem;margin-bottom:1.5rem;">Powered by DexScreener</p>
+      <div class="card" style="padding:6px;">
         <div class="dex-wrap">
           <iframe
-            src="https://dexscreener.com/solana/xxxxxxxxxxxxxxx?embed=1&theme=dark&trades=0&info=0"
-            title="DexScreener Chart"
+            src="https://dexscreener.com/solana/ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX?embed=1&theme=dark&trades=0&info=0"
+            title="$BRETT DexScreener Chart"
             allowfullscreen>
           </iframe>
         </div>
       </div>
-      <div class="flex justify-center mt-6">
-        <a href="https://dexscreener.com/solana/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer" class="btn-outline">
-          Open Full Chart on DexScreener ↗
+      <div style="display:flex;justify-content:center;margin-top:1.5rem;">
+        <a href="https://dexscreener.com/solana/ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          Open on DexScreener ↗
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ──────────── ABOUT ──────────── -->
-  <section id="about" class="py-24 px-4 bg-lyllw/20" style="position:relative;z-index:1;">
-    <div class="max-w-screen-xl mx-auto">
-      <div class="flex justify-between items-center flex-col lg:flex-row gap-4 mb-10">
-        <p class="font-primary text-white text-stroke fade-in-right" style="font-size:clamp(3rem,6vw,5rem);">BRETT</p>
-        <div class="flex-1 h-px bg-gradient-to-r from-lyllw to-yellow-400 hidden lg:block"></div>
-        <p class="font-primary text-white/75 tracking-[0.5rem] whitespace-nowrap fade-in-left">THE PEPE'S BESTFRIEND</p>
+  <!-- ═══════════════════════════════ ABOUT ═══════════════════════════════ -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem;">
+        <span style="font-family:'Boogaloo',cursive;font-size:clamp(3rem,6vw,5rem);color:var(--white);-webkit-text-stroke:2px var(--cyan);">BRETT</span>
+        <div style="flex:1;height:1px;background:linear-gradient(to right,var(--cyan),transparent);margin:0 1.5rem;display:none;" class="divider-line"></div>
+        <span style="font-family:'Boogaloo',cursive;letter-spacing:0.4em;color:var(--text-dim);white-space:nowrap;">THE PEPE'S BESTFRIEND</span>
       </div>
 
-      <div class="glass-card flex flex-col lg:flex-row gap-10 items-center p-10 rounded-2xl">
-        <div class="w-full lg:w-1/2 flex justify-center">
-          <div class="float-anim" style="max-width:360px;width:100%;">
-            <img src="https://blog.btcc.com/wp-content/uploads/2024/04/GJ8CHjrWsAA_wp9.jpg"
-                 alt="Brett character"
-                 style="width:100%;border-radius:20px;filter:drop-shadow(0 0 28px rgba(61,169,214,0.5));">
-          </div>
+      <div class="card about-grid" style="padding:2.5rem;">
+        <div class="about-img">
+          <img src="https://blog.btcc.com/wp-content/uploads/2024/04/GJ8CHjrWsAA_wp9.jpg" alt="Brett character">
         </div>
-        <div class="flex flex-col gap-4 w-full lg:w-1/2 text-center lg:text-left">
-          <h2 class="font-primary text-white text-stroke-sm" style="font-size:3rem;">Who's Brett?!</h2>
-          <p class="font-sans text-xl text-white/85 leading-relaxed">
-            Brett is the legendary character from Matt Furie's Boys' Club comic. He is a dancer and loves video games.
-            Now he is living on the <strong>Solana blockchain</strong> as a fan tribute — the most based frog in all of crypto.
-          </p>
-          <p class="font-sans text-xl text-white/85 leading-relaxed">
-            100% community-driven. No team allocation, no pre-sale, no VC bags. Just Brett and his frens on Solana. WAGMI. 🐸
-          </p>
-          <div class="flex flex-wrap gap-3 justify-center lg:justify-start mt-2">
-            <a href="https://pump.fun/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer" class="btn-pump">🚀 Buy on Pump.fun</a>
-            <a href="#chart" class="btn-outline">Chart 📈</a>
+        <div class="about-text">
+          <h2>Who's Brett?!</h2>
+          <p>Brett is the legendary character from Matt Furie's Boys' Club comic. He is a dancer and loves video games. Now he is living on the <strong>Solana blockchain</strong> as a fan tribute — the most based frog in all of crypto.</p>
+          <p>100% community-driven. No team allocation, no pre-sale, no VC bags. Just Brett and his frens on Solana. WAGMI. 🐸</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1.2rem;">
+            <a href="https://pump.fun/ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">🚀 Buy on Pump.fun</a>
+            <a href="#chart" class="btn btn-outline">Chart 📈</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ──────────── TOKENOMICS ──────────── -->
-  <section id="tokenomics" class="py-24 px-4 bg-lyllw/20" style="position:relative;z-index:1;">
-    <div class="max-w-screen-xl mx-auto">
-      <div class="glass-card p-10 rounded-2xl">
+  <!-- ══════════════════════════ TOKENOMICS ══════════════════════════════ -->
+  <section class="section" id="tokenomics" style="background:rgba(4,12,28,0.5);">
+    <div class="section-inner">
+      <h2 class="section-title">TOKENOMICS</h2>
 
-        <h2 class="font-primary text-center text-white text-stroke-sm mb-10"
-            style="font-size:clamp(3rem,7vw,6rem);text-shadow:0 0 30px rgba(61,169,214,0.4);">
-          TOKENOMICS
-        </h2>
+      <div class="card" style="padding:2.5rem;">
+        <div class="toko-inner">
+          <!-- Donut SVG -->
+          <div class="donut-wrap">
+            <svg viewBox="0 0 260 260" width="240" height="240">
+              <circle cx="130" cy="130" r="100" fill="none" stroke="var(--cyan)" stroke-width="60" opacity="0.85"/>
+              <circle cx="130" cy="130" r="55" fill="rgba(4,12,28,0.95)"/>
+              <text x="130" y="124" text-anchor="middle" fill="white"  font-family="Boogaloo,cursive" font-size="20">$BRETT</text>
+              <text x="130" y="144" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-family="Boogaloo,cursive" font-size="12">SOLANA</text>
+            </svg>
+          </div>
 
-        <div class="flex flex-col md:flex-row gap-10 items-center justify-center mb-10">
-          <!-- Pie — pump.fun = 100% to pool -->
-          <svg viewBox="0 0 300 300" width="250" height="250" style="flex-shrink:0;">
-            <circle cx="150" cy="150" r="110" fill="none" stroke="#3da9d6" stroke-width="70" stroke-dasharray="691.2 0" opacity="0.85"/>
-            <circle cx="150" cy="150" r="62" fill="rgba(6,14,34,0.92)"/>
-            <text x="150" y="143" text-anchor="middle" fill="white"  font-family="Bangers,cursive" font-size="21">$BRETT</text>
-            <text x="150" y="164" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="Bangers,cursive" font-size="13">SOLANA</text>
-          </svg>
-
-          <div class="flex flex-col gap-4 text-center md:text-left">
-            <p class="font-primary text-white flex items-center justify-center md:justify-start gap-3" style="font-size:2.8rem;">
-              <span style="width:18px;height:18px;border-radius:50%;background:#3da9d6;flex-shrink:0;display:inline-block;"></span>
-              100% LIQUIDITY POOL
-            </p>
-            <p class="font-primary text-white flex items-center justify-center md:justify-start gap-3" style="font-size:2.8rem;">
-              <span style="width:18px;height:18px;border-radius:50%;background:#14F195;flex-shrink:0;display:inline-block;"></span>
-              0% TEAM TOKENS
-            </p>
-            <p class="font-primary text-white flex items-center justify-center md:justify-start gap-3" style="font-size:2.8rem;">
-              <span style="width:18px;height:18px;border-radius:50%;background:#f5d800;flex-shrink:0;display:inline-block;"></span>
-              0% TAX
-            </p>
+          <!-- Stats -->
+          <div class="toko-stats">
+            <div class="toko-row"><span class="dot" style="background:var(--cyan);"></span>100% LIQUIDITY POOL</div>
+            <div class="toko-row"><span class="dot" style="background:#14F195;"></span>0% TEAM TOKENS</div>
+            <div class="toko-row"><span class="dot" style="background:#f5d800;"></span>0% TAX</div>
           </div>
         </div>
 
         <!-- Badges -->
-        <div class="flex flex-col sm:flex-row gap-4 mb-10">
-          <div class="flex-1 rounded-2xl p-5 text-center hover:scale-105 transition-transform"
-               style="background:linear-gradient(135deg,rgba(61,169,214,0.28),rgba(245,216,0,0.12));">
-            <p class="font-primary text-xl text-white">🔒 CONTRACT RENOUNCED</p>
-          </div>
-          <div class="flex-1 rounded-2xl p-5 text-center hover:scale-105 transition-transform"
-               style="background:linear-gradient(135deg,rgba(61,169,214,0.28),rgba(245,216,0,0.12));">
-            <p class="font-primary text-xl text-white">🔥 LP BURNED</p>
-          </div>
-          <div class="flex-1 rounded-2xl p-5 text-center hover:scale-105 transition-transform"
-               style="background:linear-gradient(135deg,rgba(61,169,214,0.28),rgba(245,216,0,0.12));">
-            <p class="font-primary text-xl text-white">🌕 1B TOTAL SUPPLY</p>
-          </div>
+        <div class="toko-badges">
+          <div class="badge">🔒 CONTRACT RENOUNCED</div>
+          <div class="badge">🔥 LP BURNED</div>
+          <div class="badge">🌕 1B TOTAL SUPPLY</div>
         </div>
 
-        <!-- Pump.fun CTA -->
-        <div class="flex justify-center">
-          <a href="https://pump.fun/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer"
-             class="btn-pump" style="font-size:1.6rem;padding:1rem 3rem;">
+        <!-- Pump CTA -->
+        <div style="display:flex;justify-content:center;margin-top:2rem;">
+          <a href="https://pump.fun/ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer" class="btn btn-cyan" style="font-size:1.4rem;padding:0.8rem 2.6rem;">
             🚀 BUY ON PUMP.FUN
           </a>
         </div>
@@ -362,85 +603,81 @@
     </div>
   </section>
 
-  <!-- ──────────── HOW TO BUY ──────────── -->
-  <section id="howtobuy" class="py-24 px-4 bg-lyllw/20" style="position:relative;z-index:1;">
-    <div class="max-w-screen-xl mx-auto">
-
-      <div class="flex flex-col items-center gap-4 mb-10">
-        <p class="font-primary text-white/55 tracking-[0.5rem]">PEPE'S BESTFRIEND</p>
-        <div class="pulse-anim rounded-full p-4"
-             style="background:linear-gradient(135deg,rgba(61,169,214,0.45),rgba(153,69,255,0.28));border:1px solid rgba(61,169,214,0.45);">
-          <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="Brett"
-               style="width:90px;height:90px;border-radius:50%;object-fit:cover;display:block;">
+  <!-- ═══════════════════════════ HOW TO BUY ══════════════════════════════ -->
+  <section class="section" id="howtobuy">
+    <div class="section-inner">
+      <!-- mini Brett orb -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:0.8rem;margin-bottom:2rem;">
+        <p style="font-family:'Boogaloo',cursive;letter-spacing:0.4em;color:var(--text-dim);">PEPE'S BESTFRIEND</p>
+        <div style="width:90px;height:90px;border-radius:50%;padding:3px;background:conic-gradient(var(--cyan),#9945FF,var(--cyan));animation:spin 8s linear infinite;box-shadow:0 0 30px var(--cyan-glow);">
+          <div style="width:100%;height:100%;border-radius:50%;background:#040c1c;padding:5px;">
+            <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="Brett" style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;">
+          </div>
         </div>
-        <p class="font-primary text-stroke" style="font-size:clamp(4rem,9vw,7rem);line-height:1;">BRETT</p>
+        <h2 style="font-family:'Boogaloo',cursive;font-size:clamp(4rem,9vw,7rem);color:var(--white);-webkit-text-stroke:2px var(--cyan);letter-spacing:0.04em;line-height:1;">BRETT</h2>
       </div>
 
-      <div class="glass-card rounded-2xl p-10">
-        <div class="flex flex-col md:flex-row gap-6 mb-10">
-          <div class="flex-1 glass-card rounded-xl p-7 text-center">
-            <div class="text-5xl mb-3">👛</div>
-            <h3 class="font-primary text-2xl text-yellow-300 mb-2">1. GET A WALLET</h3>
-            <p class="font-sans text-white/80 leading-relaxed">Download <strong>Phantom</strong> or <strong>Solflare</strong>. Create an account and store your seed phrase safely.</p>
+      <div class="card" style="padding:2.5rem;">
+        <div class="steps">
+          <div class="step card">
+            <div class="step-num">01</div>
+            <h3>GET A WALLET</h3>
+            <p>Download <strong>Phantom</strong> or <strong>Solflare</strong>. Create your account and safely backup your seed phrase.</p>
           </div>
-          <div class="flex-1 glass-card rounded-xl p-7 text-center">
-            <div class="text-5xl mb-3">💰</div>
-            <h3 class="font-primary text-2xl text-yellow-300 mb-2">2. GET SOME SOL</h3>
-            <p class="font-sans text-white/80 leading-relaxed">Buy SOL on <strong>Coinbase</strong>, <strong>Binance</strong>, or any exchange, then send it to your Phantom wallet.</p>
+          <div class="step card">
+            <div class="step-num">02</div>
+            <h3>GET SOME SOL</h3>
+            <p>Buy SOL on <strong>Coinbase</strong>, <strong>Binance</strong>, or any exchange, then send it to your Phantom wallet.</p>
           </div>
-          <div class="flex-1 glass-card rounded-xl p-7 text-center">
-            <div class="text-5xl mb-3">🚀</div>
-            <h3 class="font-primary text-2xl text-yellow-300 mb-2">3. BUY ON PUMP.FUN</h3>
-            <p class="font-sans text-white/80 leading-relaxed">Go to <strong>pump.fun</strong>, search <strong>$BRETT</strong> or paste the CA, connect your wallet and swap SOL for $BRETT!</p>
+          <div class="step card">
+            <div class="step-num">03</div>
+            <h3>BUY ON PUMP.FUN</h3>
+            <p>Go to <strong>pump.fun</strong>, search <strong>$BRETT</strong> or paste the CA, connect your wallet and swap SOL for $BRETT!</p>
           </div>
         </div>
-        <div class="flex justify-center flex-wrap gap-4">
-          <a href="https://pump.fun/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer"
-             class="btn-pump" style="font-size:1.4rem;padding:0.9rem 2.4rem;">🚀 Buy on Pump.fun</a>
-          <a href="https://dexscreener.com/solana/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer"
-             class="btn-outline" style="font-size:1.4rem;padding:0.9rem 2.4rem;">DexScreener Chart</a>
+
+        <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;margin-top:2rem;">
+          <a href="https://pump.fun/ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer" class="btn btn-cyan" style="font-size:1.35rem;padding:0.8rem 2.4rem;">🚀 Buy on Pump.fun</a>
+          <a href="https://dexscreener.com/solana/ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:1.35rem;padding:0.8rem 2.4rem;">DexScreener Chart</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ──────────── UTILITIES ──────────── -->
-  <section class="py-20 px-4 bg-lyllw/20" style="position:relative;z-index:1;">
-    <div class="max-w-screen-md mx-auto flex flex-col items-center gap-5">
-      <h2 class="font-primary text-white text-center" style="font-size:clamp(3rem,6vw,5rem);">UTILITIES</h2>
-      <div class="glass-card rounded-2xl p-10 w-full">
-        <p class="font-primary text-lyllw text-3xl mb-3">Strong Community:</p>
-        <p class="font-sans text-white/80 leading-relaxed">BRETT is powered entirely by its community. No team, no VCs — just holders who believe in the meme. The community drives everything from marketing to exchange listings.</p>
-      </div>
-      <div class="glass-card rounded-2xl p-10 w-full">
-        <p class="font-primary text-lyllw text-3xl mb-3">Solana Ecosystem:</p>
-        <p class="font-sans text-white/80 leading-relaxed">Built on Solana for blazing-fast transactions and near-zero fees. Traded on Raydium, tracked on DexScreener, launched on Pump.fun — the most dynamic memecoin launchpad in crypto.</p>
-      </div>
-      <div class="glass-card rounded-2xl p-10 w-full">
-        <p class="font-primary text-lyllw text-3xl mb-3">Fully Transparent:</p>
-        <p class="font-sans text-white/80 leading-relaxed">Contract renounced, LP burned, 0% tax — everything is on-chain and verifiable. No rugs, no dev wallet, no hidden fees. Just vibes and gains.</p>
+  <!-- ════════════════════════════ UTILITIES ═══════════════════════════════ -->
+  <section class="section" style="background:rgba(4,12,28,0.5);">
+    <div class="section-inner" style="max-width:860px;">
+      <h2 class="section-title">UTILITIES</h2>
+      <div class="util-grid">
+        <div class="util-card card">
+          <h3>Strong Community</h3>
+          <p>BRETT is powered entirely by its community. No team, no VCs — just holders who believe in the meme. The community drives everything from marketing to exchange listings.</p>
+        </div>
+        <div class="util-card card">
+          <h3>Solana Ecosystem</h3>
+          <p>Built on Solana for blazing-fast transactions and near-zero fees. Traded on Raydium, tracked on DexScreener, launched on Pump.fun — the most dynamic memecoin launchpad in crypto.</p>
+        </div>
+        <div class="util-card card">
+          <h3>Fully Transparent</h3>
+          <p>Contract renounced, LP burned, 0% tax — everything is on-chain and verifiable. No rugs, no dev wallet, no hidden fees. Just vibes and gains. 🐸</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ──────────── CONTACT ──────────── -->
-  <section id="contact" class="py-24 px-4 bg-lyllw/20" style="position:relative;z-index:1;">
-    <div class="max-w-screen-xl mx-auto">
-      <div class="flex justify-between items-center flex-col lg:flex-row gap-4 mb-10">
-        <p class="font-primary text-white text-stroke-sm whitespace-nowrap fade-in-right" style="font-size:clamp(2.5rem,5vw,4rem);">contact us</p>
-        <div class="flex-1 h-px bg-gradient-to-r from-white/40 to-transparent hidden lg:block"></div>
-        <p class="font-primary text-white/70 tracking-[0.5rem] whitespace-nowrap fade-in-left">CONNECT WITH BRETT</p>
+  <!-- ═══════════════════════════ CONTACT ══════════════════════════════════ -->
+  <section class="section" id="contact">
+    <div class="section-inner">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem;">
+        <span style="font-family:'Boogaloo',cursive;font-size:clamp(2.5rem,5vw,4rem);color:var(--white);-webkit-text-stroke:1px var(--cyan);">contact us</span>
+        <div style="flex:1;height:1px;background:linear-gradient(to right,rgba(255,255,255,0.3),transparent);margin:0 1.5rem;"></div>
+        <span style="font-family:'Boogaloo',cursive;letter-spacing:0.4em;color:var(--text-dim);white-space:nowrap;">CONNECT WITH BRETT</span>
       </div>
-      <div class="flex flex-col items-center gap-8">
-        <a href="mailto:contact@basedbrett.com"
-           class="font-primary text-stroke-sm hover:text-yellow-300 transition-colors"
-           style="font-size:clamp(1.5rem,4vw,3rem);">
-          contact@basedbrett.com
-        </a>
-        <!-- X / Twitter icon only — no Telegram -->
-        <div class="flex gap-6" style="font-size:3.5rem;">
-          <a href="https://x.com/basedbrettpf" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"
-             class="text-white hover:text-yellow-300 transition-colors">
+      <div class="contact-inner">
+        <a href="mailto:contact@basedbrett.com" class="contact-email">contact@basedbrett.com</a>
+        <div style="display:flex;gap:1.5rem;">
+          <!-- X / Twitter -->
+          <a href="https://x.com/basedbrettpf" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="X/Twitter">
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em">
               <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
             </svg>
@@ -450,26 +687,24 @@
     </div>
   </section>
 
-  <!-- ──────────── FOOTER ──────────── -->
-  <footer style="background:rgba(0,0,0,0.75);position:relative;z-index:1;border-top:1px solid rgba(61,169,214,0.2);">
-    <div class="max-w-screen-xl mx-auto flex flex-col items-center gap-4 py-12 px-4">
-      <div class="flex items-center justify-center gap-5 flex-wrap">
-        <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="BRETT"
-             style="width:56px;height:56px;border-radius:50%;object-fit:cover;box-shadow:0 0 18px rgba(61,169,214,0.5);">
-        <p class="font-primary text-white text-stroke"
-           style="font-size:clamp(2.5rem,7vw,5.5rem);line-height:1;text-shadow:0 0 50px rgba(61,169,214,0.4);">
-          BASED BRETT
-        </p>
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="BRETT">
+        <span class="footer-title">BASED BRETT</span>
       </div>
-      <p class="font-sans text-white/40 text-sm text-center max-w-lg leading-relaxed">
-        $BRETT is a memecoin for entertainment purposes only. This is not financial advice. Always do your own research before investing in any cryptocurrency.
+      <p class="footer-disclaimer">
+        $BRETT is a memecoin for entertainment purposes only. This is not financial advice.
+        Always do your own research before investing in any cryptocurrency.
       </p>
-      <p class="font-sans text-white/25 text-xs">Copyright &copy; 2026. All rights reserved.</p>
+      <p class="footer-copy">Copyright &copy; 2026. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- ════════════════ SCRIPT ════════════════ -->
   <script>
-    const CA = 'xxxxxxxxxxxxxxx';
+    const CA = 'ESjuJW4cAhTaVT3YZ9s9qdP3zoPZNNmrvdNTmsCUTKkX';
 
     function copyCA() {
       const done = () => {
@@ -481,25 +716,17 @@
         navigator.clipboard.writeText(CA).then(done).catch(done);
       } else {
         const ta = document.createElement('textarea');
-        ta.value = CA; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        ta.value = CA; ta.style.cssText = 'position:fixed;opacity:0;';
         document.body.appendChild(ta); ta.select();
         document.execCommand('copy'); document.body.removeChild(ta);
         done();
       }
     }
 
-    // Reveal fade-in elements on scroll
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'none';
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => io.observe(el));
+    // Show divider line only on desktop
+    if (window.innerWidth >= 860) {
+      document.querySelectorAll('.divider-line').forEach(el => el.style.display = 'block');
+    }
   </script>
 </body>
 </html>
