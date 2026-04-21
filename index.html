@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BASED BRETT — $BRETT on Solana</title>
+  <meta name="title" content="BRETT - No 1 Meme on Solana">
+  <meta name="description" content="Introducing BRETT, The No 1 MEME COIN on Solana and a Friend of PEPE.">
+  <meta name="keywords" content="BRETT, BRETT Coin, Solana MEME, Brett Solana, PEPE, Meme Coin, Meme on Solana, Solana Network, Matt Furie">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="BASED BRETT">
+  <meta property="og:description" content="Introducing BRETT, The No 1 MEME COIN on Solana and a Friend of PEPE.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BASED BRETT">
+  <meta name="twitter:description" content="Introducing BRETT, The No 1 MEME COIN on Solana and a Friend of PEPE.">
+  <meta name="twitter:image" content="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg">
+  <link rel="icon" type="image/png" href="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg">
+  <link rel="apple-touch-icon" href="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            yllw: '#f5d800',
+            lyllw: '#3da9d6',
+            gry: '#888888',
+            blk: '#000000',
+          },
+          fontFamily: {
+            primary: ['Bangers', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+    
+    .font-primary { font-family: 'Bangers', cursive; letter-spacing: 0.05em; }
+    .text-stroke { -webkit-text-stroke: 2px white; color: transparent; }
+    .text-stroke-sm { -webkit-text-stroke: 1px white; color: transparent; }
+    .bg-cover-custom {
+      background-image: url('https://i.imgur.com/LpTKIs7.png');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      position: relative;
+    }
+    .bg-cover-custom::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 15, 35, 0.72);
+      pointer-events: none;
+      z-index: 0;
+    }
+    nav, section, div[id], footer, .glass-card { position: relative; z-index: 1; }
+    .glow-orb-1 {
+      position: absolute; border-radius: 50%;
+      width: 48rem; height: 48rem;
+      background: radial-gradient(circle, rgba(61,169,214,0.5) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .glow-orb-2 {
+      position: absolute; border-radius: 50%;
+      width: 48rem; height: 48rem;
+      background: radial-gradient(circle, rgba(245,216,0,0.3) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .hover-scale { transition: transform 0.3s ease-in-out; }
+    .hover-scale:hover { transform: scale(1.05); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+    .float-anim { animation: float 4s ease-in-out infinite; }
+    .pulse-anim { animation: pulse-glow 3s ease-in-out infinite; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .fade-in-up { animation: fadeInUp 0.8s ease forwards; }
+    .fade-in-left { animation: fadeInLeft 0.8s ease forwards; }
+    .fade-in-right { animation: fadeInRight 0.8s ease forwards; }
+    .glass-card {
+      background: linear-gradient(135deg, rgba(61,169,214,0.15) 0%, rgba(245,216,0,0.08) 100%);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(61,169,214,0.4);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, rgba(245,216,0,0.8) 0%, rgba(61,169,214,0.8) 100%);
+      border: 1px solid rgba(245,216,0,0.7);
+      border-radius: 9999px;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      color: #000;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .btn-primary:hover { transform: scale(1.05); filter: brightness(1.1); }
+    .btn-outline {
+      border: 1px solid rgba(61,169,214,0.7);
+      border-radius: 9999px;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(135deg, rgba(245,216,0,0.1) 0%, rgba(61,169,214,0.1) 100%);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-outline:hover { transform: scale(1.05); background: linear-gradient(135deg, rgba(245,216,0,0.2) 0%, rgba(61,169,214,0.2) 100%); }
+    .exchange-logo {
+      transition: all 0.3s ease;
+      filter: brightness(0.9);
+    }
+    .exchange-logo:hover { transform: scale(1.1); filter: brightness(1.2); }
+    .sol-badge {
+      background: linear-gradient(135deg, #9945FF, #14F195);
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: white;
+    }
+    /* Smooth scroll */
+    html { scroll-behavior: smooth; }
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a1628; }
+    ::-webkit-scrollbar-thumb { background: rgba(61,169,214,0.5); border-radius: 3px; }
+  </style>
+</head>
+<body class="font-primary text-white w-full h-auto overflow-x-hidden bg-cover-custom min-h-screen">
+
+  <!-- Fixed floating Buy Brett button -->
+  <button onclick="window.open('https://raydium.io/swap/?inputCurrency=sol&outputCurrency=xxxxxxxxxxxxxxx','_blank')"
+    style="position:fixed;bottom:20px;right:20px;padding:10px 20px;background:linear-gradient(135deg,#9945FF,#14F195);color:#fff;border:none;border-radius:5px;cursor:pointer;z-index:1000;font-family:Bangers,cursive;font-size:1.1rem;letter-spacing:1px;box-shadow:0 4px 15px rgba(153,69,255,0.4);">
+    Buy $BRETT
+  </button>
+
+  <!-- NAVBAR -->
+  <nav class="p-8 relative z-50 bg-lyllw/40 backdrop-blur-sm" style="opacity:1;transform:translateY(0)">
+    <div class="flex justify-between items-center max-w-screen-xl mx-auto">
+      <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="BRETT" class="h-12 w-12 rounded-full object-cover" style="box-shadow:0 0 12px rgba(61,169,214,0.6)">
+      <div class="gap-x-12 items-center hidden lg:flex">
+        <a href="#about"><p class="font-semibold hover:text-lyllw transition-all ease-in-out duration-300 text-white">ABOUT</p></a>
+        <a href="#tokenomics"><p class="font-semibold hover:text-lyllw transition-all ease-in-out duration-300 text-white">TOKENOMICS</p></a>
+        <a href="#howtobuy"><p class="font-semibold hover:text-lyllw transition-all ease-in-out duration-300 text-white">HOW TO BUY</p></a>
+        <a href="#contact"><p class="font-semibold hover:text-lyllw transition-all ease-in-out duration-300 text-white">CONTACT</p></a>
+        <a href="https://t.me/basedbrett"><p class="font-semibold hover:text-lyllw transition-all ease-in-out duration-300 text-white">TELEGRAM</p></a>
+      </div>
+      <div class="gap-x-4 items-center hidden lg:flex">
+        <a href="#howtobuy">
+          <button class="btn-outline text-white text-base font-semibold">Buy on Raydium</button>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <div class="w-full h-auto relative pb-24 bg-lyllw/40" id="home">
+    <!-- Glow orbs -->
+    <div class="glow-orb-1 pulse-anim" style="top:-320px;right:-320px;"></div>
+    <div class="glow-orb-2" style="bottom:0;left:-192px;animation:pulse-glow 4s ease-in-out infinite;"></div>
+
+    <div class="max-w-screen-xl mx-auto p-4 flex flex-col gap-y-12 items-center justify-center relative z-20">
+      <!-- Main hero row -->
+      <div class="flex items-center justify-center flex-col md:flex-row gap-y-8 w-full pt-8">
+        <!-- Brett Lottie SVG (left) -->
+        <div class="w-full lg:w-1/2 flex justify-center items-center fade-in-up">
+          <div class="float-anim" style="width:100%;max-width:480px;">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" width="512" height="512" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;filter:drop-shadow(0 0 30px rgba(61,169,214,0.4))">
+              <defs><clipPath id="clip_hero"><rect width="512" height="512" x="0" y="0"/></clipPath></defs>
+              <g clip-path="url(#clip_hero)">
+                <!-- Body -->
+                <g transform="matrix(1.68,−0.49,0.49,1.68,−300.69,−92.52)" opacity="1">
+                  <g transform="matrix(1,0,0,1,255.74,291.66)">
+                    <path fill="rgb(61,169,214)" d="M-82.18,-51.66 C-97.49,-28.32 -110.35,-0.47 -108.1,34.34 C-105.74,70.84 -76.15,84.08 -65.48,94.4 C-30.9,133.64 42.41,131.51 79.98,89.01 C92.72,74.33 108.76,68.34 109.22,30.96 C109.56,4.11 98.4,-29.58 81.45,-53.49 C52.26,-94.66 26.76,-93.46 -1.05,-93.32 C-30.24,-93.16 -58.24,-88.16 -82.18,-51.66z"/>
+                    <path fill="rgb(26,140,187)" d="M57.61,107.92 C65.6,103.03 73.15,96.74 79.98,89.01 C92.72,74.33 108.76,68.34 109.22,30.96 C109.56,4.11 98.4,-29.58 81.45,-53.49 C73.09,-65.28 65.03,-73.6 57.13,-79.46 C116.76,-1.16 101.86,40.98 57.61,107.92z"/>
+                    <path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M-82.18,-51.66 C-97.49,-28.32 -110.35,-0.47 -108.1,34.34 C-105.74,70.84 -76.15,84.08 -65.48,94.4 C-30.9,133.64 42.41,131.51 79.98,89.01 C92.72,74.33 108.76,68.34 109.22,30.96 C109.56,4.11 98.4,-29.58 81.45,-53.49 C52.26,-94.66 26.76,-93.46 -1.05,-93.32 C-30.24,-93.16 -58.24,-88.16 -82.18,-51.66z"/>
+                  </g>
+                </g>
+                <!-- Eyes left -->
+                <g transform="matrix(0.69,-0.45,0.45,0.69,-88.54,88.44)">
+                  <g transform="matrix(1,0,0,1,189.59,246.38)">
+                    <path fill="rgb(255,255,255)" d="M0.71,-29.56 C28.68,-29.56 51.6,-17.64 51.6,-0.22 C51.6,17.2 37.15,28.63 1.92,29.12 C-33.3,29.56 -51.6,21.27 -51.38,-1.21 C-51.21,-22.31 -27.25,-29.56 0.71,-29.56z"/>
+                    <path stroke-linecap="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M0.71,-29.56 C28.68,-29.56 51.6,-17.64 51.6,-0.22 C51.6,17.2 37.15,28.63 1.92,29.12 C-33.3,29.56 -51.6,21.27 -51.38,-1.21 C-51.21,-22.31 -27.25,-29.56 0.71,-29.56z"/>
+                  </g>
+                  <g transform="matrix(1,0,0,1,191.76,248.45)">
+                    <path fill="rgb(0,0,0)" d="M0.03,19.26 C13.49,19.26 24.48,10.63 24.48,0.03 C24.48,-10.58 13.49,-19.26 0.03,-19.26 C-13.49,-19.26 -24.48,-10.58 -24.48,0.03 C-24.48,10.63 -13.49,19.26 0.03,19.26z"/>
+                  </g>
+                  <g transform="matrix(1,0,0,1,201.6,251.51)">
+                    <path fill="rgb(255,255,255)" d="M7.12,-1.47 C10.69,0.34 7.61,3.42 4.84,5.89 C1.16,9.18 -2.16,10.02 -4.49,8.24 C-7.63,5.84 -11.3,-0.08 -6.67,-1.8 C-3.99,-2.8 -2.82,0.93 -0.08,0.77 C2.96,0.6 5.27,-2.45 7.12,-1.47z"/>
+                  </g>
+                  <!-- Eye iris shine -->
+                  <g transform="matrix(1,0,0,1,188.71,226.55)">
+                    <path fill="rgb(61,169,214)" d="M-1.67,-21.82 C26.68,-22.31 56.6,-3.55 55.65,28.5 C29.17,-6.36 -25.11,-15.25 -48.13,36.77 C-63.23,0.1 -31.62,-21.32 -1.67,-21.82z"/>
+                    <path stroke-linecap="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M-1.67,-21.82 C26.68,-22.31 56.6,-3.55 55.65,28.5 C29.17,-6.36 -25.11,-15.25 -48.13,36.77 C-63.23,0.1 -31.62,-21.32 -1.67,-21.82z"/>
+                  </g>
+                </g>
+                <!-- Eyes right -->
+                <g transform="matrix(-0.82,-0.01,-0.01,0.82,479.7,-77.26)">
+                  <g transform="matrix(1,0,0,1,189.59,246.38)">
+                    <path fill="rgb(255,255,255)" d="M0.71,-29.56 C28.68,-29.56 51.6,-17.64 51.6,-0.22 C51.6,17.2 37.15,28.63 1.92,29.12 C-33.3,29.56 -51.6,21.27 -51.38,-1.21 C-51.21,-22.31 -27.25,-29.56 0.71,-29.56z"/>
+                    <path stroke-linecap="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M0.71,-29.56 C28.68,-29.56 51.6,-17.64 51.6,-0.22 C51.6,17.2 37.15,28.63 1.92,29.12 C-33.3,29.56 -51.6,21.27 -51.38,-1.21 C-51.21,-22.31 -27.25,-29.56 0.71,-29.56z"/>
+                  </g>
+                  <g transform="matrix(1,0,0,1,191.76,248.45)">
+                    <path fill="rgb(0,0,0)" d="M0.03,19.26 C13.49,19.26 24.48,10.63 24.48,0.03 C24.48,-10.58 13.49,-19.26 0.03,-19.26 C-13.49,-19.26 -24.48,-10.58 -24.48,0.03 C-24.48,10.63 -13.49,19.26 0.03,19.26z"/>
+                  </g>
+                  <g transform="matrix(-0.33,0.95,-0.95,-0.33,181.77,251.96)">
+                    <path fill="rgb(255,255,255)" d="M7.26,-7.49 C9.56,-3.53 8.52,-1.86 6.67,2.72 C4.94,7.03 1.8,10.36 0.09,6.74 C-1.96,2.37 1.01,1.48 0.55,-0.6 C0.02,-3.03 -3.71,-4.39 -4,-7.27 C-4.49,-12.23 4.95,-11.45 7.26,-7.49z"/>
+                  </g>
+                  <g transform="matrix(1,0,0,1,188.71,226.55)">
+                    <path fill="rgb(61,169,214)" d="M-1.67,-21.82 C26.68,-22.31 56.6,-3.55 55.65,28.5 C29.17,-6.36 -25.11,-15.25 -48.13,36.77 C-63.23,0.1 -31.62,-21.32 -1.67,-21.82z"/>
+                  </g>
+                </g>
+                <!-- Mouth -->
+                <g transform="matrix(3.02,-0.96,0.96,3.02,-822.5,-499.45)">
+                  <g transform="matrix(1,0,0,1,253.63,315.62)">
+                    <path fill="rgb(252,108,182)" d="M-50.47,-17.89 C-59.01,0.44 -66.63,42.52 -48.43,64.25 C-39.53,74.87 -14.07,78.72 2.57,78.77 C20.04,78.39 47.19,75.08 55.39,62.56 C71.8,37.51 60.64,-2.21 50.28,-21.88 C40.74,-39.99 21.85,-38.62 2.24,-33.04 C-16.65,-39.62 -40.56,-39.16 -50.47,-17.89z"/>
+                    <path stroke-linecap="round" fill-opacity="0" stroke="rgb(172,27,102)" stroke-width="6" d="M-50.47,-17.89 C-59.01,0.44 -66.63,42.52 -48.43,64.25 C-39.53,74.87 -14.07,78.72 2.57,78.77 C20.04,78.39 47.19,75.08 55.39,62.56 C71.8,37.51 60.64,-2.21 50.28,-21.88 C40.74,-39.99 21.85,-38.62 2.24,-33.04 C-16.65,-39.62 -40.56,-39.16 -50.47,-17.89z"/>
+                  </g>
+                </g>
+                <!-- Nose freckles/hat band -->
+                <g transform="matrix(2.57,0.01,-0.01,2.58,-133.13,-160.88)">
+                  <g transform="matrix(1,0,0.18,1,120.57,232.0)">
+                    <path fill="rgb(5,0,44)" fill-opacity="0.95" d="M-19.69,-11.28 C-20.03,-3.01 -15.29,11.45 -7.3,11.28 C-2.45,11.2 2.9,11.31 8.18,11.06 C12.91,10.83 16.23,8.62 17.22,4.9 C17.84,2.52 19.14,-1.91 19.53,-4.38 L15.37,-11.25 L-19.69,-11.28z"/>
+                  </g>
+                  <!-- Hat flame details -->
+                  <g transform="matrix(1,0,0,1,-7.18,-0.02)">
+                    <path fill="rgb(255,255,255)" d="M116.31,222.02 C113.68,226.2 111.23,231.06 114.07,233.09 C116.64,234.93 116.84,236.49 115.14,239.71 C116.06,241.08 117.81,242.5 119.07,242.5 C121.11,239.0 121.98,234.92 119.6,232.36 C116.06,228.56 119.61,225.31 122.04,222.11 C120.39,222.11 117.28,222.07 116.31,222.02z"/>
+                  </g>
+                </g>
+                <!-- Left arm -->
+                <g transform="matrix(0.97,-0.19,0.2,0.97,242.23,468.51)">
+                  <g>
+                    <path fill="rgb(61,169,214)" d="M-206,-55 C-205.25,-48 -207.4,-44.63 -207.38,-42.88 C-207.25,-34.88 -202.78,-29.96 -202.13,-26.63 C-201.89,-25.43 -201.72,-24.99 -201.47,-23.97 C-201.43,-22.99 -201.18,-21.78 -201.22,-20.94 C-204.01,-5.32 -150.74,13.21 -155.09,-12.28 C-154.86,-16.67 -155.06,-21.82 -154.27,-25.79 C-153.47,-34.26 -152.44,-40.45 -152,-47.5 C-151.01,-104.64 -206.75,-62 -206,-55z"/>
+                    <path fill="rgb(34,147,193)" d="M-159.74,-1.16 C-156.1,-2.95 -154.1,-6.48 -155.09,-12.28 C-154.86,-16.67 -155.06,-21.82 -154.27,-25.79 C-153.47,-34.26 -152.44,-40.45 -152,-47.5 C-151.77,-60.91 -154.66,-68.83 -159.22,-73 C-160.13,-73.84 -172.1,4.92 -159.74,-1.16z"/>
+                    <path stroke-linecap="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="7" d="M-155.09,-12.28 C-154.86,-16.67 -155.06,-21.82 -154.27,-25.79 C-153.47,-34.26 -152.44,-40.45 -152,-47.5 C-151.01,-104.64 -206.75,-62 -206,-55 C-205.25,-48 -207.4,-44.63 -207.38,-42.88 C-207.25,-34.88 -202.78,-29.96 -202.13,-26.63 C-201.89,-25.43 -201.72,-24.99 -201.47,-23.97 C-201.43,-22.99 -201.18,-21.78 -201.22,-20.94"/>
+                  </g>
+                </g>
+                <!-- Right arm -->
+                <g transform="matrix(0.95,0.29,-0.29,0.97,552.99,561.82)">
+                  <g>
+                    <path fill="rgb(61,169,214)" d="M-205.37,-59.88 C-204.62,-52.88 -202.92,-45.7 -202.9,-42.3 C-202.87,-33.87 -203.24,-24.59 -203.13,-19.9 C-203.91,-10.41 -203.45,-15.75 -203.72,-12.5 C-205.05,3.57 -153.92,-2.8 -156.46,-23.54 C-156.93,-27.42 -156.13,-29.22 -156.21,-32.46 C-156.35,-37.97 -153.52,-44.18 -153.1,-52.91 C-151.73,-81.48 -206.12,-66.88 -205.37,-59.88z"/>
+                    <path fill="rgb(34,147,193)" d="M-165.48,-9.16 C-159.62,-12.56 -155.71,-17.43 -156.46,-23.54 C-156.93,-27.42 -156.13,-29.22 -156.21,-32.46 C-156.35,-37.97 -153.52,-44.18 -153.1,-52.91 C-152.68,-61.59 -157.41,-66.29 -164.18,-68.42 C-166.58,-69.18 -172.0,-20.64 -165.48,-9.16z"/>
+                    <path stroke-linecap="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="7" d="M-156.46,-23.54 C-156.93,-27.42 -156.13,-29.22 -156.21,-32.46 C-156.35,-37.97 -153.52,-44.18 -153.1,-52.91 C-151.73,-81.48 -206.12,-66.88 -205.37,-59.88 C-204.62,-52.88 -202.92,-45.7 -202.9,-42.3 C-202.87,-33.87 -203.24,-24.59 -203.13,-19.9 C-203.91,-10.41 -203.45,-15.75 -203.72,-12.5"/>
+                  </g>
+                </g>
+                <!-- Legs -->
+                <g transform="matrix(0.87,-0.19,0.19,0.87,176.49,232.73)">
+                  <g>
+                    <path fill="rgb(61,169,214)" d="M-163.5,129.25 C-173.75,125.75 -192.01,133.19 -200.75,139.25 C-216.25,150 -215,211 -207,216.5 C-199,222 -172.5,213.23 -159.72,208.81 C-144.72,203.61 -135.28,177.5 -136.5,158 C-136.88,152.0 -153.25,132.75 -163.5,129.25z"/>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Text right -->
+        <div class="flex flex-col text-white w-full lg:w-1/2 items-center lg:items-start fade-in-left">
+          <p class="font-primary font-semibold tracking-[0.5rem] text-lyllw">INTRODUCING</p>
+          <p class="font-primary text-7xl lg:text-9xl text-white" style="-webkit-text-stroke:2px rgba(255,255,255,0.5);text-shadow:0 0 40px rgba(61,169,214,0.6)">BRETT</p>
+          <p class="font-primary text-3xl tracking-[0.3rem] text-center lg:text-left text-white/80">PEPE's best friend on <span class="text-transparent bg-clip-text" style="background:linear-gradient(90deg,#9945FF,#14F195)">SOLANA</span></p>
+          <p class="font-sans text-xl text-center lg:text-left mt-4 text-white/70 max-w-lg">one of crypto's most significant cultural icons and the most based memecoin on the Solana chain</p>
+          <div class="w-3/4 h-[1px] bg-white/30 my-6 w-full"></div>
+
+          <!-- CA Box -->
+          <div class="flex items-center gap-x-3 flex-wrap gap-y-2">
+            <button onclick="copyCA()" class="px-4 py-3 border border-lyllw/70 rounded-full bg-lyllw/10 flex gap-x-3 items-center font-semibold hover:bg-lyllw/20 transition-all text-sm lg:text-base">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+              <span id="ca-display">xxxxxxxxxxxxxxx</span>
+            </button>
+            <span id="ca-copied" class="text-green-400 text-sm hidden">✓ Copied!</span>
+          </div>
+
+          <!-- Buy buttons -->
+          <div class="flex flex-col md:flex-row gap-x-4 gap-y-4 mt-6">
+            <a href="https://raydium.io/swap/?outputCurrency=xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer">
+              <button class="btn-primary text-xl font-primary tracking-wider">
+                Buy on Raydium
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"><path d="M11 19H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"></path><path d="M13 5h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5"></path><circle cx="12" cy="12" r="3"></circle><path d="m18 22-3-3 3-3"></path><path d="m6 2 3 3-3 3"></path></svg>
+              </button>
+            </a>
+            <a href="https://jup.ag/swap/SOL-xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer">
+              <button class="btn-outline text-xl font-primary tracking-wider">Jupiter Chart</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUY IT ON (Exchange logos) -->
+  <section class="w-full h-auto p-10 relative bg-lyllw/40">
+    <div class="max-w-7xl mx-auto glass-card p-5 xl:p-16 rounded-xl">
+      <div class="flex flex-col justify-center items-center text-6xl lg:text-9xl leading-[3rem] lg:leading-[5rem] mb-10">
+        <p class="text-center font-primary text-white">BUY IT ON</p>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2">
+        <!-- Exchange logos using text badges since we can't load local images -->
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.bybit.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-white hover:bg-white/20 transition-all">Bybit</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.binance.us" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-yellow-400 hover:bg-white/20 transition-all">Binance US</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.kucoin.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-green-400 hover:bg-white/20 transition-all">KuCoin</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.gate.io" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-white hover:bg-white/20 transition-all">Gate.io</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.bitget.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-blue-400 hover:bg-white/20 transition-all">Bitget</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.mexc.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-white hover:bg-white/20 transition-all">MEXC</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.bithumb.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-orange-400 hover:bg-white/20 transition-all">Bithumb</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://phemex.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-purple-400 hover:bg-white/20 transition-all">Phemex</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://bingx.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-white hover:bg-white/20 transition-all">BingX</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://upbit.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-blue-300 hover:bg-white/20 transition-all">Upbit</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.bitmart.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-white hover:bg-white/20 transition-all">Bitmart</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://coinone.co.kr" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-cyan-400 hover:bg-white/20 transition-all">Coinone</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.lbank.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-white hover:bg-white/20 transition-all">LBank</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.coinex.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-teal-400 hover:bg-white/20 transition-all">CoinEX</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://poloniex.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-green-300 hover:bg-white/20 transition-all">Poloniex</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://bitvavo.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-indigo-400 hover:bg-white/20 transition-all">Bitvavo</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://ascendex.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-white hover:bg-white/20 transition-all">AscendEX</div></a></div>
+        <div class="w-1/3 lg:w-1/5 p-2"><a href="https://www.bitrue.com" target="_blank" rel="noopener noreferrer"><div class="exchange-logo bg-white/10 rounded-xl p-4 text-center font-primary text-xl text-blue-400 hover:bg-white/20 transition-all">Bitrue</div></a></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <div class="w-full h-auto bg-lyllw/40 py-24 relative" id="about">
+    <div class="max-w-screen-xl mx-auto p-4">
+      <div class="flex justify-between items-center gap-x-4 flex-col lg:flex-row py-4">
+        <p class="font-primary text-4xl lg:text-6xl leading-[2rem] lg:leading-[5rem] text-white text-stroke fade-in-right">BRETT</p>
+        <div class="w-full h-[2px] bg-gradient-to-r from-lyllw to-yllw hidden lg:block"></div>
+        <p class="font-primary tracking-[0.5rem] font-bold w-max whitespace-nowrap fade-in-left text-white">THE PEPE'S BESTFRIEND</p>
+      </div>
+
+      <div class="glass-card flex flex-col lg:flex-row gap-y-8 items-center justify-center w-full p-12 rounded-2xl">
+        <!-- Brett about SVG animation -->
+        <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+          <div class="float-anim" style="width:100%;max-width:320px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width:100%;filter:drop-shadow(0 0 20px rgba(61,169,214,0.5))">
+              <!-- Simplified Brett sitting pose -->
+              <g transform="matrix(1.22,0,0,1.22,-53.39,-56.08)">
+                <!-- Body -->
+                <g transform="matrix(1,0,0,1,247.66,154.16)">
+                  <path fill="rgb(61,169,214)" d="M-36.05,-69.23 C-17.02,-73.69 55.74,-75.06 67.38,-67.75 C78.52,-60.78 90.02,-45.0 91.36,-27.66 C92.69,-10.33 91.33,22.83 84.33,34.83 C77.33,46.83 61.88,58.0 50.88,61.34 C39.88,64.67 -33.96,73.69 -61.66,53.17 C-90.22,31.82 -84.34,-37.68 -74.64,-49.65 C-59.61,-69.1 -36.05,-69.23 -36.05,-69.23z"/>
+                  <path fill="rgb(10,126,175)" fill-opacity="0.7" d="M50.52,-71.23 C55.83,-70.94 64.46,-69.33 67.38,-67.75 C78.63,-60.8 90.02,-45.0 91.36,-27.66 C92.69,-10.33 91.33,22.83 84.33,34.83 C77.33,46.83 61.88,58.0 50.88,61.34 C56.52,55.14 77.68,38.25 79.4,10.23 C84.91,-13.98 79.97,-39.58 69.04,-49.07 C67.07,-61.31 50.52,-71.23 50.52,-71.23z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(22,105,140)" stroke-width="6" d="M-36.05,-69.23 C-17.02,-73.69 55.74,-75.06 67.38,-67.75 C78.52,-60.78 90.02,-45.0 91.36,-27.66 C92.69,-10.33 91.33,22.83 84.33,34.83 C77.33,46.83 61.88,58.0 50.88,61.34 C39.88,64.67 -33.96,73.69 -61.66,53.17 C-90.22,31.82 -84.25,-37.84 -74.64,-49.65 C-59.62,-69.1 -36.05,-69.23 -36.05,-69.23z"/>
+                </g>
+                <!-- Mouth pink -->
+                <g transform="matrix(1,0,0,1,259.91,180.27)">
+                  <path fill="rgb(252,108,182)" d="M69.3,-17.34 C81.02,-19.76 80.47,-7.33 76.45,-5.15 C80.33,-2.39 77.0,7.27 67.6,10.55 C50.52,17.79 -12.81,28.02 -61.15,6.22 C-83.56,-3.79 -70.07,-25.7 -52.11,-17.31 C-31.83,-7.85 -3.68,-7.75 10.49,-7.73 C42.17,-7.66 56.79,-13.41 69.3,-17.34z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(172,26,101)" stroke-width="6" d="M69.3,-17.34 C81.02,-19.76 80.47,-7.33 76.45,-5.15 C80.33,-2.39 77.0,7.27 67.6,10.55 C50.52,17.79 -12.81,28.02 -61.15,6.22 C-83.56,-3.79 -70.07,-25.7 -52.11,-17.31 C-31.83,-7.85 -3.68,-7.75 10.49,-7.73 C42.17,-7.66 56.79,-13.41 69.3,-17.34z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(172,26,101)" stroke-width="6" transform="matrix(1,0,0,1,9.93,4.48)" d="M-69.99,-10.48 C-34.6,3.26 21.38,8.52 63.44,-9.08"/>
+                </g>
+                <!-- Eyes white left -->
+                <g transform="matrix(1,0,0,1,228.54,127.92)">
+                  <path fill="rgb(255,255,255)" d="M-30.54,-1.42 C-31.63,9.08 -20.86,15.97 0.13,16.75 C22.43,17.58 30.63,11.25 31.13,1.25 C31.63,-8.75 11.96,-17.25 -1.54,-17.42 C-15.04,-17.58 -29.35,-12.93 -30.54,-1.42z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M-30.54,-1.42 C-31.63,9.08 -20.86,15.97 0.13,16.75 C22.43,17.58 30.63,11.25 31.13,1.25 C31.63,-8.75 11.96,-17.25 -1.54,-17.42 C-15.04,-17.58 -29.35,-12.93 -30.54,-1.42z"/>
+                  <path fill="rgb(61,169,214)" d="M-30.54,-1.42 C-25.26,-28.3 29.96,-17.88 31.13,1.25 C31.63,-8.75 11.96,-17.25 -1.54,-17.42 C-15.04,-17.58 -29.35,-12.93 -30.54,-1.42z"/>
+                </g>
+                <!-- Pupil left -->
+                <g transform="matrix(1,0,0,1,227.32,128.63)">
+                  <path fill="rgb(0,0,0)" d="M10.38,0.22 C10.38,5.95 5.73,9.63 0,9.63 C-5.73,9.63 -10.38,5.95 -10.38,0.22 C-10.38,-5.51 -5.73,-9.63 0,-9.63 C5.73,-9.63 10.38,-5.51 10.38,0.22z"/>
+                </g>
+                <g transform="matrix(1,0,0,1,230.97,128.29)">
+                  <path fill="rgb(255,255,255)" d="M4.17,0.09 C4.17,2.51 2.3,4.06 0,4.06 C-2.31,4.06 -4.17,2.51 -4.17,0.09 C-4.17,-2.33 -2.31,-4.06 0,-4.06 C2.3,-4.06 4.17,-2.33 4.17,0.09z"/>
+                </g>
+                <!-- Eyes white right -->
+                <g transform="matrix(1,0,0,1,315.76,131.69)">
+                  <path fill="rgb(255,255,255)" d="M-31.0,-0.01 C-30.78,8.18 -22.44,15.69 -3.17,16.62 C19.82,17.74 33.1,13.2 33.07,1.97 C33.03,-14.72 9.6,-17.44 -3.9,-17.61 C-17.4,-17.77 -31.33,-13.01 -31.0,-0.01z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M-31.0,-0.01 C-30.78,8.18 -22.44,15.69 -3.17,16.62 C19.82,17.74 33.1,13.2 33.07,1.97 C33.03,-14.72 9.6,-17.44 -3.9,-17.61 C-17.4,-17.77 -31.33,-13.01 -31.0,-0.01z"/>
+                  <path fill="rgb(61,169,214)" d="M-32.13,-0.05 C-32.27,-8.65 -21.7,-18.81 -2.43,-17.87 C20.57,-16.75 32.52,-10.54 33.07,1.97 C33.03,-14.72 10.95,-17.46 -2.55,-17.63 C-16.05,-17.8 -32.47,-13.05 -32.13,-0.05z"/>
+                </g>
+                <!-- Pupil right -->
+                <g transform="matrix(1,0,0,1,315.91,131.3)">
+                  <path fill="rgb(0,0,0)" d="M10.38,0.22 C10.38,5.95 5.73,9.63 0,9.63 C-5.73,9.63 -10.38,5.95 -10.38,0.22 C-10.38,-5.51 -5.73,-9.63 0,-9.63 C5.73,-9.63 10.38,-5.51 10.38,0.22z"/>
+                </g>
+                <g transform="matrix(1,0,0,1,319.56,130.96)">
+                  <path fill="rgb(255,255,255)" d="M4.17,0.09 C4.17,2.51 2.3,4.06 0,4.06 C-2.31,4.06 -4.17,2.51 -4.17,0.09 C-4.17,-2.33 -2.31,-4.06 0,-4.06 C2.3,-4.06 4.17,-2.33 4.17,0.09z"/>
+                </g>
+                <!-- Nose ear left -->
+                <g transform="matrix(1,0,0,1,185.93,79.19)">
+                  <path fill="rgb(61,169,214)" d="M26.3,10.87 C25.73,-0.43 22.89,-26.07 7.09,-29.81 C-5.6,-32.82 -16.29,-29.34 -21.67,-19.31 C-27.39,-8.5 -26.37,16.43 -14.47,29.66z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M26.3,10.87 C25.73,-0.43 22.89,-26.07 7.09,-29.81 C-5.6,-32.82 -16.29,-29.34 -21.67,-19.31 C-27.39,-8.5 -26.37,16.43 -14.47,29.66z"/>
+                  <path fill="rgb(252,107,182)" d="M10.03,7.16 C8.49,-2.27 7.25,-19.35 -2.1,-21.16 C-7.21,-22.45 -13.98,-19.01 -15.15,-12.1 C-16.66,-3.96 -15.6,12.72 -7.77,23.39z"/>
+                  <path fill="rgb(212,67,142)" d="M-4.72,11.23 C-7.72,2.73 -11.48,-15.32 -2.1,-21.16 C-7.21,-22.45 -13.98,-19.01 -15.15,-12.1 C-16.66,-3.96 -15.6,12.72 -7.77,23.39z"/>
+                </g>
+                <!-- Nose ear right -->
+                <g transform="matrix(1,0,0,1,329.78,130.72)">
+                  <path fill="rgb(61,169,214)" d="M-7.59,-26.1 C1.73,-24.75 13.49,-21.55 12.85,-9.7 C12.06,3.98 15.31,7.36 13.47,14.23 C11.62,21.11 7.37,24.84 0.93,24.7z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(23,105,140)" stroke-width="6" d="M-7.59,-26.1 C1.73,-24.75 13.49,-21.55 12.85,-9.7 C12.06,3.98 15.31,7.36 13.47,14.23 C11.62,21.11 7.37,24.84 0.93,24.7z"/>
+                </g>
+                <!-- Legs left -->
+                <g transform="matrix(1.2,-0.07,0.08,1.19,-56.14,-8.25)">
+                  <g transform="matrix(1,0,0,1,161.75,400.17)">
+                    <path fill="rgb(61,169,214)" d="M-56.29,9.41 C-50.24,-6.82 -36.98,-11.9 -26.18,-19.92 C-18.89,-24.99 15.37,-56.9 24.89,-63.77 C51.72,-55.94 47.84,-26.05 47.84,-26.05 C4.68,8.45 -9.65,56.49 -49.44,52.56z"/>
+                    <path fill="rgb(36,148,194)" d="M-28.39,42.36 C-14.18,37.92 2.48,5.37 32.59,-17.7 C37.08,-20.26 39.16,-17.82 39.16,-17.82 C-3.26,17.13 -9.65,56.49 -49.44,52.56z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(24,105,141)" stroke-width="6" d="M-56.29,9.41 C-50.24,-6.82 -36.98,-11.9 -26.18,-19.92 C-18.89,-24.99 15.37,-56.9 24.89,-63.77 C51.72,-55.94 47.84,-26.05 47.84,-26.05 C4.68,8.45 -9.65,56.49 -49.44,52.56z"/>
+                  </g>
+                </g>
+                <!-- Leg right -->
+                <g transform="matrix(1.22,-0.07,0.08,1.19,-90.41,-8.25)">
+                  <g transform="matrix(1,0,0,1,358.28,335.88)">
+                    <path fill="rgb(61,169,214)" d="M-43.96,-21.31 C-31.46,-14.59 -16.79,13.14 -5.02,33.26 C12.86,63.81 29.42,71.23 42.89,72.4 C46.08,72.68 53.4,76.46 60.44,73.04 C62.91,71.84 62.01,66.15 61.51,58.65 C61.01,51.15 63.1,32.59 46.54,10.87 C28.54,-12.75 -5.81,-38.14 -25.61,-53.34 C-40.96,-53.34 -51.46,-36.7 -43.96,-21.31z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(24,105,141)" stroke-width="6" d="M61.83,62.85 C61.72,61.53 61.61,60.13 61.51,58.65 C61.01,51.15 63.1,32.59 46.54,10.87 C28.54,-12.75 -5.81,-38.14 -25.61,-53.34 C-40.96,-53.34 -51.46,-36.7 -43.96,-21.31 C-43.96,-21.31 -43.96,-21.31 -43.96,-21.31 C-31.46,-14.59 -16.79,13.14 -5.02,33.26 C12.86,63.81 29.42,71.23 42.89,72.4 C46.08,72.68 53.4,76.46 60.44,73.04 C62.42,72.08 62.23,68.22 61.83,62.85"/>
+                  </g>
+                </g>
+                <!-- Tail left arm -->
+                <g transform="matrix(1.2,-0.22,0.22,1.2,-129.54,-34.71)">
+                  <g>
+                    <path fill="rgb(61,169,214)" d="M198.77,332.72 C184.43,328.11 171.69,375.8 200.62,380.92 C220.62,384.47 222.36,340.31 198.77,332.72z"/>
+                  </g>
+                  <g transform="matrix(1,0,0,1,227.57,337.7)">
+                    <path fill="rgb(61,169,214)" d="M-40.49,-1.43 C-33.72,-7.64 -25.86,-10.03 -23.69,-12.69 C-21.53,-15.36 -17.19,-24.57 -18.07,-31.94 C-18.62,-36.58 -27.36,-50.49 -25.07,-53.37 C-22.72,-56.31 -11.24,-54.36 -7.24,-44.69 C-3.24,-35.03 -4.22,-24.53 -3.94,-19.82 C-3.24,-7.53 12.47,-4.94 19.0,-2.6 C23.06,1.93 27.39,6.26 33.76,13.31 C38.24,18.25 33.76,24.06 31.18,23.39 C33.18,25.47 34.35,34.39 27.6,33.39 C30.66,36.08 30.68,43.97 24.93,44.56 C26.81,47.43 27.49,53.62 22.18,55.06 C16.74,56.24 10.64,56.31 5.26,55.64 C3.13,55.68 0.1,54.56 -3.11,53.14 C-9.52,54.56 -17.67,51.26 -22.57,46.31 C-24.8,44.05 -28.08,44.1 -29.18,45.06"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(24,105,141)" stroke-width="6" d="M-40.49,-1.43 C-33.72,-7.64 -25.86,-10.03 -23.69,-12.69 C-21.53,-15.36 -17.19,-24.57 -18.07,-31.94 C-18.62,-36.58 -27.36,-50.49 -25.07,-53.37 C-22.72,-56.31 -11.24,-54.36 -7.24,-44.69 C-3.24,-35.03 -4.22,-24.53 -3.94,-19.82 C-3.24,-7.53 12.47,-4.94 19.0,-2.6 C23.06,1.93 27.39,6.26 33.76,13.31 C38.24,18.25 33.76,24.06 31.18,23.39 C33.18,25.47 34.35,34.39 27.6,33.39 C30.66,36.08 30.68,43.97 24.93,44.56 C26.81,47.43 27.49,53.62 22.18,55.06 C16.74,56.24 10.64,56.31 5.26,55.64 C3.13,55.68 0.1,54.56 -3.11,53.14 C-9.52,54.56 -17.67,51.26 -22.57,46.31 C-24.8,44.05 -28.08,44.1 -29.18,45.06"/>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- About text -->
+        <div class="flex flex-col justify-center gap-y-4 w-full lg:w-1/2 text-center lg:text-left">
+          <h1 class="text-stroke-sm text-5xl font-primary fade-in-left">Who's Brett?!</h1>
+          <p class="text-2xl font-sans fade-in-left text-white/90">Brett is the legendary character from Matt Furie's Boys' club comic. He is a dancer and loves video games. Now he is living on the <strong>Solana blockchain</strong> as a fan tribute. He has become the mascot of the Solana chain.</p>
+          <div class="flex gap-x-4 items-center justify-center lg:justify-start mt-5">
+            <a href="https://t.me/basedbrett">
+              <button class="btn-outline text-xl font-primary">
+                Telegram
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em"><path d="M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z"/></svg>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOKENOMICS -->
+  <div class="w-full h-auto bg-lyllw/40 py-24 relative" id="tokenomics">
+    <div class="max-w-screen-xl mx-auto p-4">
+      <div class="glass-card gap-y-8 items-center justify-center w-full p-12 rounded-2xl">
+        <div class="flex flex-col md:flex-row">
+          <!-- Pie chart SVG -->
+          <div class="flex flex-col items-center justify-center">
+            <svg viewBox="0 0 300 300" width="280" height="280">
+              <!-- Pie: 85% LP, 10% Treasury, 5% CEX -->
+              <circle cx="150" cy="150" r="120" fill="none" stroke="#3da9d6" stroke-width="80" stroke-dasharray="639.8 0" stroke-dashoffset="0" opacity="0.8"/>
+              <circle cx="150" cy="150" r="120" fill="none" stroke="#9945FF" stroke-width="80" stroke-dasharray="75.3 564.4" stroke-dashoffset="-639.8" opacity="0.9"/>
+              <circle cx="150" cy="150" r="120" fill="none" stroke="#14F195" stroke-width="80" stroke-dasharray="37.7 602.1" stroke-dashoffset="-715.1" opacity="0.9"/>
+              <circle cx="150" cy="150" r="70" fill="rgba(10,22,40,0.9)"/>
+              <text x="150" y="145" text-anchor="middle" fill="white" font-family="Bangers,cursive" font-size="22">$BRETT</text>
+              <text x="150" y="168" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Bangers,cursive" font-size="14">SOLANA</text>
+            </svg>
+          </div>
+
+          <div class="items-center gap-y-4 w-full lg:w-1/2 text-center flex flex-col justify-center">
+            <h1 class="text-stroke-sm text-6xl md:text-8xl text-center font-primary fade-in-left">TOKENOMICS</h1>
+            <div class="text-center">
+              <p class="mt-5 text-5xl md:text-7xl font-primary fade-in-left flex items-center justify-center gap-3">
+                <span class="w-5 h-5 rounded-full inline-block" style="background:#3da9d6"></span>
+                85% LP
+              </p>
+              <p class="mt-5 text-5xl md:text-7xl font-primary fade-in-left flex items-center justify-center gap-3">
+                <span class="w-5 h-5 rounded-full inline-block" style="background:#9945FF"></span>
+                10% TREASURY
+              </p>
+              <p class="mt-5 text-5xl md:text-7xl font-primary fade-in-left flex items-center justify-center gap-3">
+                <span class="w-5 h-5 rounded-full inline-block" style="background:#14F195"></span>
+                5% CEX WALLET
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-y-5 gap-x-5 text-center text-4xl mt-8">
+          <div class="w-full rounded-3xl drop-shadow-lg duration-300 transition-all ease-in-out hover:scale-110 cursor-pointer" style="background:linear-gradient(135deg,rgba(61,169,214,0.4),rgba(245,216,0,0.2))">
+            <a href="https://solscan.io" target="_blank" rel="noopener noreferrer">
+              <h1 class="font-primary p-4 text-white">CONTRACT RENOUNCED</h1>
+            </a>
+          </div>
+          <div class="w-full rounded-3xl drop-shadow-lg duration-300 transition-all ease-in-out hover:scale-110 cursor-pointer" style="background:linear-gradient(135deg,rgba(61,169,214,0.4),rgba(245,216,0,0.2))">
+            <a href="https://raydium.io" target="_blank" rel="noopener noreferrer">
+              <h1 class="font-primary p-4 text-white">LP LOCKED 365 DAYS</h1>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW TO BUY + central Brett orb -->
+  <div class="w-full h-auto relative bg-lyllw/40 text-white" id="howtobuy">
+    <div class="w-full h-screen absolute z-10 opacity-100"></div>
+    <div class="max-w-screen-xl mx-auto p-4 flex flex-col gap-y-8 items-center justify-center relative z-20 py-24">
+      <div class="flex flex-col items-center font-bold gap-y-4 z-50">
+        <div class="flex flex-col items-center">
+          <p class="font-primary tracking-[0.5rem] text-white/70">PEPE'S</p>
+          <p class="font-primary tracking-[0.5rem] text-white/70">BESTFRIEND</p>
+        </div>
+        <!-- Central Brett icon -->
+        <div class="p-6 rounded-full border border-lyllw/70 pulse-anim" style="background:linear-gradient(to bottom,rgba(30,40,60,0.8),rgba(0,0,0,0.8))">
+          <div class="rounded-full p-4" style="background:linear-gradient(135deg,rgba(61,169,214,0.8),rgba(245,216,0,0.8))">
+            <div class="rounded-full w-40 h-40 overflow-hidden flex items-center justify-center" style="background:rgba(61,169,214,0.2)">
+              <svg viewBox="0 0 200 200" width="160" height="160">
+                <circle cx="100" cy="120" r="70" fill="rgb(61,169,214)"/>
+                <ellipse cx="100" cy="130" rx="50" ry="30" fill="rgb(26,140,187)" opacity="0.6"/>
+                <ellipse cx="75" cy="95" rx="18" ry="20" fill="white"/>
+                <ellipse cx="125" cy="95" rx="18" ry="20" fill="white"/>
+                <circle cx="78" cy="98" r="10" fill="black"/>
+                <circle cx="128" cy="98" r="10" fill="black"/>
+                <circle cx="81" cy="94" r="3.5" fill="white"/>
+                <circle cx="131" cy="94" r="3.5" fill="white"/>
+                <path d="M75 128 Q100 148 125 128" stroke="rgb(172,27,102)" stroke-width="4" fill="rgb(252,108,182)" stroke-linecap="round"/>
+                <ellipse cx="74" cy="120" rx="12" ry="8" fill="rgb(252,107,182)"/>
+                <ellipse cx="126" cy="120" rx="12" ry="8" fill="rgb(252,107,182)"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How to buy cards -->
+      <div class="glass-card flex flex-col gap-y-8 items-center justify-center w-full pt-24 pb-12 rounded-2xl relative overflow-hidden backdrop-blur-lg">
+        <div class="flex flex-col justify-center items-center">
+          <p class="font-primary text-stroke text-7xl lg:text-9xl">BRETT</p>
+        </div>
+
+        <div class="flex p-6 gap-x-4 gap-y-8 flex-col md:flex-row w-full">
+          <!-- Step 1 -->
+          <div class="w-full glass-card rounded-xl p-6 text-center">
+            <div class="text-5xl mb-3">👛</div>
+            <h3 class="font-primary text-2xl text-lyllw mb-2">1. GET A WALLET</h3>
+            <p class="font-sans text-white/80">Download <strong>Phantom</strong> or <strong>Solflare</strong> wallet. Create an account and safely store your seed phrase.</p>
+          </div>
+          <!-- Step 2 -->
+          <div class="w-full glass-card rounded-xl p-6 text-center">
+            <div class="text-5xl mb-3">💰</div>
+            <h3 class="font-primary text-2xl text-lyllw mb-2">2. GET SOME SOL</h3>
+            <p class="font-sans text-white/80">Buy SOL from <strong>Coinbase</strong>, <strong>Binance</strong>, or <strong>Kraken</strong>, then send it to your Phantom wallet.</p>
+          </div>
+          <!-- Step 3 -->
+          <div class="w-full glass-card rounded-xl p-6 text-center">
+            <div class="text-5xl mb-3">🔄</div>
+            <h3 class="font-primary text-2xl text-lyllw mb-2">3. SWAP FOR $BRETT</h3>
+            <p class="font-sans text-white/80">Go to <strong>Raydium</strong> or <strong>Jupiter</strong>, paste the CA, set slippage to 3-5% and swap SOL for $BRETT!</p>
+          </div>
+        </div>
+
+        <div class="flex gap-x-4">
+          <a href="https://raydium.io/swap/?outputCurrency=xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer">
+            <button class="btn-primary text-xl font-primary px-8 py-4">
+              Buy Now
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
+            </button>
+          </a>
+          <a href="https://dexscreener.com/solana/xxxxxxxxxxxxxxx" target="_blank" rel="noopener noreferrer">
+            <button class="btn-outline text-xl font-primary px-8 py-4">See Charts</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UTILITIES -->
+  <div class="w-full h-auto py-24 relative bg-lyllw/40 text-white">
+    <div class="max-w-screen-md mx-auto p-4 flex flex-col items-center justify-center relative z-20">
+      <p class="font-primary text-4xl lg:text-6xl leading-[2rem] lg:leading-[5rem] text-white p-4">UTILITIES</p>
+      <div class="w-full flex flex-col gap-y-4">
+        <div class="glass-card flex flex-col lg:flex-row gap-y-8 items-center w-full p-12 rounded-2xl">
+          <div class="flex flex-col justify-center gap-y-4 w-full text-center lg:text-left">
+            <p class="font-primary text-3xl lg:text-4xl text-lyllw">Strong Partnerships:</p>
+            <p class="font-sans text-white/80">BRETT has forged strategic partnerships with leading companies in the Solana crypto space, which will help to ensure the project's long-term viability and growth.</p>
+          </div>
+        </div>
+        <div class="glass-card flex flex-col lg:flex-row gap-y-8 items-center w-full p-12 rounded-2xl">
+          <div class="flex flex-col justify-center gap-y-4 w-full text-center lg:text-left">
+            <p class="font-primary text-3xl lg:text-4xl text-lyllw">Growing Ecosystem:</p>
+            <p class="font-sans text-white/80">The Solana ecosystem is rapidly expanding with blazing fast transactions and minimal fees. This growing ecosystem provides a strong foundation for BRETT's success, as it allows the project to leverage the resources and expertise of the Solana community. As Solana continues to grow, so too will the potential for BRETT to thrive.</p>
+          </div>
+        </div>
+        <div class="glass-card flex flex-col lg:flex-row gap-y-8 items-center w-full p-12 rounded-2xl">
+          <div class="flex flex-col justify-center gap-y-4 w-full text-center lg:text-left">
+            <p class="font-primary text-3xl lg:text-4xl text-lyllw">Strong Community Support:</p>
+            <p class="font-sans text-white/80">The Solana chain and BRETT have garnered significant support from the crypto community, with many prominent figures expressing their bullish outlook on the project. This strong community backing provides a solid foundation for growth, as it ensures that there is a dedicated user base to support and promote the memecoin.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="w-full h-auto py-24 relative bg-lyllw/40" id="contact">
+    <div class="max-w-screen-xl mx-auto p-4">
+      <div class="flex justify-between items-center gap-x-4 flex-col lg:flex-row py-4">
+        <p class="font-primary text-4xl lg:text-6xl leading-[2rem] lg:leading-[5rem] text-white text-stroke-sm whitespace-nowrap fade-in-right">contact us</p>
+        <div class="w-full h-[2px] bg-gradient-to-r from-white to-white/0 hidden lg:block"></div>
+        <p class="font-primary tracking-[0.5rem] font-bold w-max whitespace-nowrap text-white fade-in-left">CONNECT WITH BRETT</p>
+      </div>
+      <div class="flex justify-between items-center gap-x-4 gap-y-16 p-4 lg:px-24 lg:py-12 flex-col">
+        <div class="flex gap-x-4 gap-y-4 flex-col lg:flex-row items-center justify-center">
+          <a href="mailto:contact@basedbrett.com" target="_blank" rel="noopener noreferrer">
+            <p class="font-semibold underline hover:text-lyllw transition-all ease-in-out duration-300 text-3xl md:text-5xl font-primary text-stroke-sm">contact@basedbrett.com</p>
+          </a>
+        </div>
+        <div class="flex gap-x-6 text-6xl text-white">
+          <a href="https://t.me/basedbrett" target="_blank" rel="noopener noreferrer">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="hover:text-lyllw cursor-pointer transition-all ease-in-out duration-300" height="1em" width="1em"><path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="w-full h-auto bg-black/60 relative bg-lyllw/40">
+    <div class="max-w-screen-xl mx-auto flex flex-col gap-y-4">
+      <div class="flex items-center justify-center gap-6 py-12">
+        <img src="https://pbs.twimg.com/media/Ghizh_sW8AAM8j6.jpg" alt="BRETT" class="w-20 h-20 rounded-full object-cover" style="box-shadow:0 0 24px rgba(61,169,214,0.5)">
+        <p class="font-primary text-9xl text-center text-white text-stroke" style="text-shadow:0 0 60px rgba(61,169,214,0.4)">BASED BRETT</p>
+      </div>
+      <div class="flex flex-col md:flex-row items-center justify-center gap-x-10 text-white/70 font-sans pb-4">
+        <span class="flex items-center gap-x-2">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 7V3H2v18h20V7H12zm-2 12H4v-2h6v2zm0-4H4v-2h6v2zm0-4H4V9h6v2zm0-4H4V5h6v2zm10 12h-8V9h8v10zm-2-8h-4v2h4v-2zm0 4h-4v2h4v-2z"></path></svg>
+          BRETT BROS - FZCO
+        </span>
+        <span class="flex items-center gap-x-2">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+          DSO IFZA Properties, Dubai Silicon Oasis
+        </span>
+        <span class="flex items-center gap-x-2">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em"><path d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path></svg>
+          +971 50 577 4317
+        </span>
+      </div>
+      <div class="flex justify-center w-full py-4">
+        <p class="text-white/50 font-sans text-sm">Copyright © 2025. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // CA copy
+    function copyCA() {
+      const ca = 'xxxxxxxxxxxxxxx';
+      navigator.clipboard.writeText(ca).then(() => {
+        const el = document.getElementById('ca-copied');
+        el.classList.remove('hidden');
+        setTimeout(() => el.classList.add('hidden'), 2000);
+      });
+    }
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'none';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Mobile menu toggle (simple)
+    document.addEventListener('DOMContentLoaded', () => {
+      // Smooth entrance for hero
+      document.querySelectorAll('.fade-in-up').forEach((el, i) => {
+        el.style.animationDelay = (i * 0.1) + 's';
+      });
+    });
+  </script>
+</body>
+</html>
